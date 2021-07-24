@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="og:description" content="CALCULATE YOUR BMSCE SGPA,CGPA, PERCENTAGE AND STORE YOUR DATA.">
+    <meta name="author" content="developed by Karthik.S (UG CSE BMSCE)" />
+    <meta property="og:title" content="SGPA,CGPA, PERCENTAGE CALCULATOR FOR BMSCE STUDENTS" />
+    <meta property="og:url" content="https://bmsce-dynamicsgpacalculator.netlify.app//" />
+    <meta name="description" content="CALCULATE SGPA,CGPA,PERCENTAGE AND STORE DATA OF BMSCE RESULTS QUICKLY HERE!">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <title>SGPA/CGPA/% CALCULATOR</title>
+    <link rel="icon" href="/assets/images/title-image.png" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<div id="preloader">
+    <div id="loader-img">
+        <div id="loader" style="border-radius: 10rem;"></div>
+    </div>
+
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    @media (min-width: 768px) {
+        .navbar-brand.abs {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        }
+    }
+</style>
+
+<!-- example 1 - using absolute position for center -->
+<!-- <nav class="navbar navbar-expand-md navbar-faded bg-faded">
+    <a class="navbar-brand abs" href="#">GRADE POINT CALCULATOR</a>
+    <img src="/assets/images/bmsce.png" class="img-fluid" alt="...">
+
+</nav> 
+
+<!-- example 2 - using auto margins -->
+<nav class="navbar navbar-expand-md navbar-faded bg-faded">
+
+    <div class="mx-auto order-0">
+        <br>
+        <a id="navname" class="navbar-brand abs" href="#" style="pointer-events:none;font-weight:bolder;margin-top: -1.7rem;padding: 1rem;">
+            <h1 id="resphead" style="color: black;font-weight: bolder; font-family: 'IBM Plex Serif', serif;color: black;">SEMESTER / CUMMULATIVE <br> GRADE POINTS CALCULATOR</p>
+        </a>
+        <br>
+    </div>
+    <img id="imgnav" src="/assets/images/bmsce.png" class="img-fluid" alt="...">
+
+</nav>
+
+<!-- 
+example 3 - Navbar with brand left, links on center and right that collapse into the vert mobile menu
+-->
+<!-- <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">Navbar 3</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="//codeply.com">Codeply</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Right</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Right</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Right</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+
+<!-- 4 - contained in center example -->
+<!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+        <a class="navbar-brand" href="#">Navbar 4</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> -->
+
+<!-- example 5 left and center only with empty space right -->
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary flex-nowrap">
+    <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbar5">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand w-100">Navbar 5</span>
+    <div class="navbar-collapse collapse w-100 justify-content-center" id="navbar5">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Codeply</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+    </div>
+    <div class="w-100">
+        
+    </div>
+</nav> -->
+
+
+<!-- example 6 - center on mobile -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"></span>
+        <a class="navbar-brand d-none d-lg-inline-block" href="#">
+            Navbar 6
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+            <img src="//placehold.it/40?text=LOGO" alt="logo">
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item nav-active">Our Solution</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item">How We Help</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+
+<!-- example 7 - center on mobile 2-->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"></span>
+        <a class="navbar-brand" href="#">
+            Navbar 7
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Link</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Link</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Link</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Link</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+<!-- 
+<div class="text-center">
+    <span class="badge badge-dark badge-pill">
+    this is viewport center
+    </span>
+</div> -->
+
+<!-- <center style="text-align: center;">
+    <label class="label success" style="min-width:43%;background-color: white;padding: 0.5rem;font-family: 'Roboto', sans-serif;color: #0088cc;text-align: center;font-size: 24px;margin-top: 1.5rem;display: inline-block;
+    text-align: right;
+    ">GRADE POINT CALCULATOR</label>
+
+    <img src="/assets/images/bmsce.png" class="img-fluid" alt="..." style="padding: 1rem;float: right;">
+</center> -->
+<style>
+    #list img {
+        max-width: 300px;
+        height: 100px;
+        border: 1px solid grey;
+        border-radius: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    #deleteImgs {
+        display: none;
+    }
+</style>
+<label class="label success" style="min-width:100%;background-color: #0088cc;padding: 1rem;color: white;text-align: center;">GP CALCULATOR FOR BE, MCA, MTECH</label>
+
+<body>
+
+
+    <div class="form-modal">
+
+        <!-- <center style="margin-top: 1rem;"> <img id="calci" src="/assets/images/logo.jpg" alt="..." class="rounded-circle mx-auto d-block" style="border-radius: 10rem;padding-top: 0.3rem;margin-bottom: 1rem;"> -->
+        </center>
+
+        <div class="form-toggle">
+
+        </div>
+        <center style="margin-top: 2rem;">
+            <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.6rem;color: white;text-align: center;">ENTER NAME, USN, BRANCH AND SEMESTER TO ACCESS THE CALCULATOR</label>
+
+        </center>
+
+        <div id="login-form">
+
+            <form onsubmit="event.preventDefault(); validate()" class="contact-form" id="registrationTable" method="post" autocomplete="off" name="google-sheet">
+                <!-- <p class="card-title" style="margin-bottom:0.2rem; color: #002bff;margin-bottom: 0.5rem;font-weight: bolder;"><b>NAME : </b></p> -->
+                <span style="margin-right: 2.3rem;">NAME : </span> <input type="text" class="input" name="name" id="name" placeholder="NAME" required>
+                <p style="
+                color: #002bff;">* (Eg : John, Format - Only spaces are allowed special characters) </p>
+                <!-- <p class="card-title" style="margin-bottom:0.2rem; color:#002bff;margin-bottom: 0.5rem;"><b>USN
+                    FORMAT EX : 1BM20CS000 (ONLY 10 LETTERS) </b></p> -->
+                <span style="margin-right: 3rem;">USN : </span> <input type="text" class="input" name="usn" id="usn" placeholder="USN" required>
+                <p style="
+           color: #002bff;">* (Eg : 1BM20CS000 , Format - Only 10 Letters) </p>
+
+                <!-- <span style="margin-right: 0.85rem;">BRANCH : </span>  -->
+                <span style="margin-right: 0.85rem;">BRANCH : </span> <select id="branch">
+                    <option value="CSE" >CSE</option>
+                    <option value="ISE" >ISE</option>
+                    <option value="BIOTECHNOLOGY">BIOTECHNOLOGY</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="EIE">EIE</option>
+                    <option value="ETC">ETC</option>
+                    <option value="MECHANICAL">MECHANICAL</option>
+                    <option value="AIML">AIML</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MEDICAL ELECTRONICS">MEDICAL ELECTRONICS</option>
+                    <option value="IEM">IEM</option>
+                    <option value="CHEMICAL">CHEMICAL</option>
+                    <option value="AEROSPACE">AEROSPACE</option>
+                    <option value="AEROSPACE">MTECH</option>
+                    <option value="AEROSPACE">MCA</option></select>
+                <!-- <input type="text" class="input" name="branch" id="branch" placeholder="BRANCH" maxlength="5" required> -->
+                <p style="
+              color: #002bff;">* (Select your branch from above) </p>
+                <span>SEMESTER : </span> <select id="semester">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+                <p style="
+             color: #002bff;">* (Select your semester from above) </p>
+
+
+                <!-- <p>Select images, they will be stored in your browser and will be displayed even after reload. Selecting big images (&gt; 2MB) can crash your browser.</p> -->
+                <span style="margin-right: 1.8rem;">IMAGE : </span> <input type="file" id="files">
+                <p style="
+                color: #002bff;">* (Select your Image to Print On Marks Card. Not Mandatory) </p>
+
+                <p id="state" style="display: none;">No images stored in your browser.</p>
+
+                <div id="list">
+                </div>
+
+                <a href="#" id="deleteImgs">Delete Image</a><br>
+
+                <div class="btn-group" style="margin-top: 1rem;">
+                    <button class="glow-on-hover" name="submit" value="SUBMIT" id="submitBtn" style="margin-bottom: 1rem;  background: #042893;color:white;text-transform:uppercase; font-weight: bolder;box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);margin-right: 1rem;"
+                        disabled>SUBMIT</button>
+
+                    <button class="glow-on-hover1" value="reset" type="reset" style="  background-color: #042893;text-transform:uppercase; font-weight: bolder;box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);">RESET</button>
+                    <br><br>
+
+                </div>
+
+                <!-- <button class="glow-on-hover" name="submit" value="SUBMIT" id="submitBtn" style="margin-bottom: 1rem;  background: #57b846;;text-transform:uppercase; font-weight: bolder;box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);">SUBMIT</button>
+
+                <h6 id="info" style="font-weight: bolder;"></h6>
+                <button class="glow-on-hover" name="submit" value="reset" type="reset" id="submitBtn" style="margin-bottom: 2rem;  background: #57b846;;text-transform:uppercase; font-weight: bolder;box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);">SUBMIT</button> -->
+                <p id="info" style="font-weight: bolder;"></p>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="wrapper" style="margin-top: 8rem;">
+
+        <div id="header">
+        </div>
+        <!-- #header -->
+
+        <div id="content">
+        </div>
+        <!-- #content -->
+
+        <div id="footer"><b>&copy;</b> Copyright
+            <script>
+                document.write(new Date().getFullYear())
+            </script>. All Rights Reserved <br>Created By <a href="https://bit.ly/2XMDijq" target="_blank" style="color: hsl(197, 100%, 61%);font-size: 17px;"><b style="font-weight: bolder;"> Karthik.S</b></a> (UG CSE BMSCE)</p>
+
+        </div>
+        <!-- #footer -->
+
+    </div>
+    <a href="whatsapp://send?text=Link : https://bmscegpacalculator.netlify.app/" class="float">
+        <div aria-hidden="true " class="resp-sharing-button__icon resp-sharing-button__icon--solid ">
+            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24 ">
+                <path
+                    d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1
+        0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2
+        0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z " />
+            </svg>
+        </div>
+    </a>
+
+    <script>
+        (() => {
+            const n_key = localStorage.getItem('name-key');
+            const usn_key = localStorage.getItem('usn-key');
+            const branch_key = localStorage.getItem('branch-key');
+            const sem_key = localStorage.getItem('sem-key');
+            if (n_key)
+                document.getElementById('name').value = n_key;
+            if (usn_key)
+                document.getElementById('usn').value = usn_key;
+            if (branch_key)
+                document.getElementById('branch').value = branch_key;
+            if (sem_key)
+                document.getElementById('semester').value = sem_key;
+
+        })();
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPcIamhNUHw7nrRBbZMHV1i_oqO6AVRARUfKmw4Ua9l11RNM9zkWII4w/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => console.log("Name and usn stored."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script type="text/javascript">
+        const signUp = e => {
+            let formData = {
+                name: document.getElementById('name').value,
+                usn: document.getElementById('usn').value,
+                branch: document.getElementById('branch').value,
+
+            }
+            localStorage.setItem('formData', JSON.stringify(formData));
+
+            e.preventDefault();
+        }
+
+        function validate() {
+            let condition_state = true;
+            let value = 0;
+            // document.getElementById("submitBtn").addEventListener("click", myFunction);
+            var regName = /^[a-zA-Z_ ]*$/;
+            var regName1 = /^[a-zA-Z_ ]*$/;
+            var flag = 1;
+            var flagEmpty = 0;
+
+            while (flag) {
+                var usn = document.getElementById("usn").value;
+                var usnLower = usn.toLowerCase();
+                var str = usnLower.search(/1BM[1-2][0-9][A-Z]{2}[0-9][0-9]{2}/i);
+                if (usn.length == 0) {
+                    swal("USN FIELD IS EMPTY!", "PLEASE TRY AGAIN!", "error");
+                    info.innerHTML = 'USN FIELD IS EMPTY!';
+                    info.style.color = '#e74c3c';
+                    info.style.display = 'block';
+                    condition_state = false;
+                    break;
+
+                }
+                if (str != -1 && (usn.length <= 10)) {
+                    // swal("NAME AND USN VALID!", "NOW LOGIN / SIGNUP!", "success");
+                    info.innerHTML = 'NAME,USN AND BRANCH VALID';
+                    info.className += 'animated bounce';
+                    info.style.color = '#2ecc71';
+                    info.style.display = 'block';
+
+                    value++;
+                    flag = 0;
+
+                    break;
+                } else {
+                    swal("INVALID USN!", "PLEASE TRY AGAIN!", "error");
+                    info.innerHTML = 'INVALID USN! PLEASE, TRY AGAIN';
+                    info.style.color = '#e74c3c';
+                    info.style.display = 'block';
+
+                    condition_state = false;
+                    break;
+                }
+
+            }
+
+            flag = 1;
+            while (flag) {
+                var name = document.getElementById("name").value;
+                var usn = document.getElementById("usn").value;
+
+                if (name.length == 0) {
+                    swal("NAME FIELD IS EMPTY!", "PLEASE TRY AGAIN!", "error");
+                    info.innerHTML = 'NAME FIELD IS EMPTY';
+                    info.style.color = '#e74c3c';
+                    info.style.display = 'block';
+                    condition_state = false;
+                    break;
+                }
+
+                if (name.search(regName) != -1) {
+                    flag = 0;
+                    value++;
+                    break;
+                } else {
+                    info.className = '';
+                    swal("INVALID NAME ENTERED!", "(ONLY SPACES ALLOWED)!", "error");
+                    info.innerHTML = 'INVALID NAME ENTERED (ONLY SPACES ALLOWED)..';
+                    info.style.color = '#e74c3c';
+                    info.style.display = 'block';
+                    info.className += 'animated shake';
+                    condition_state = false;
+                    // location.replace("index.html")
+                    break;
+                }
+
+            }
+            // flag = 1;
+            // while (flag) {
+            // var branch = document.getElementById("branch").value;
+
+
+            // if (branch.length == 0) {
+            //     swal("BRANCH FIELD IS EMPTY!", "PLEASE TRY AGAIN!", "error");
+            //     info.innerHTML = 'BRANCH FIELD IS EMPTY';
+            //     info.style.color = '#e74c3c';
+            //     info.style.display = 'block';
+            //     condition_state = false;
+            //     break;
+            // }
+
+            // if (branch.search(regName1) != -1) {
+            //     flag = 0;
+            //     value++;
+            //     break;
+            // } else {
+            //     info.className = '';
+            //     swal("INVALID BRANCH ENTERED!", "(PLEASE CHECK AGAIN)!", "error");
+            //     info.innerHTML = 'INVALID BRANCH ENTERED (ONLY SPACES ALLOWED)..';
+            //     info.style.color = '#e74c3c';
+            //     info.style.display = 'block';
+            //     info.className += 'animated shake';
+            //     condition_state = false;
+            //     break;
+            // }
+
+            // }
+
+
+
+
+
+            var name = document.getElementById("name").value;
+            var usn = document.getElementById("usn").value;
+            var branch = document.getElementById("branch").value;
+            var semester = document.getElementById("semester").value;
+            localStorage.setItem("name-key", name);
+            localStorage.setItem("usn-key", usn);
+            localStorage.setItem("branch-key", branch);
+            localStorage.setItem("sem-key", semester);
+            if (condition_state)
+                location.replace('homepage.html');
+
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+</body>
+<script>
+    document.onreadystatechange = function() {
+        if (document.readyState === "complete") {
+            $("#panel_left").addClass("panel_left");
+            $("#panel_right").addClass("panel_right");
+            $("#loader").addClass("loaded-circle");
+            $("#loader-img").addClass("loaded-img");
+            $("#preloader").addClass("loaded-img");
+        }
+    }
+</script>
+<script>
+    let name = localStorage.getItem("name-key");
+    let usn = localStorage.getItem("usn-key");
+    let branch = localStorage.getItem("branch-key");
+    let semester = localStorage.getItem("sem-key");
+    document.getElementById("usn").innerHTML = usn;
+    for (let i = 0; i < document.getElementsByClassName("name").length; i++) {
+        document.getElementsByClassName("name")[i].innerHTML = name
+    }
+</script>
+<script>
+    const _xid = ['branch', 'semester', 'usn', 'name'];
+    setInterval(() => {
+        for (const x of _xid) {
+            if (!document.getElementById(x).value) return;
+        }
+        document.getElementById('submitBtn').disabled = false;
+    }, 1000);
+</script>
+
+
+
+<script>
+    var imagesObject = [];
+
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = function(e) {
+                displayImgData(e.target.result)
+                addImage(e.target.result);
+            };
+
+            reader.readAsDataURL(f);
+        }
+    }
+
+    function loadFromLocalStorage() {
+        var images = JSON.parse(localStorage.getItem("images"))
+
+        if (images && images.length > 0) {
+            imagesObject = images;
+
+            displayNumberOfImgs();
+            images.forEach(displayImgData);
+        }
+    }
+
+    function addImage(imgData) {
+        imagesObject.push(imgData);
+        displayNumberOfImgs();
+        localStorage.setItem("images", JSON.stringify(imagesObject));
+    }
+
+    function displayImgData(imgData) {
+        var span = document.createElement('span');
+        span.innerHTML = '<img class="thumb" src="' + imgData + '"/>';
+        document.getElementById('list').insertBefore(span, null);
+    }
+
+    function displayNumberOfImgs() {
+        if (imagesObject.length > 0) {
+
+            document.getElementById("state").innerHTML = imagesObject.length + " image" + ((imagesObject.length > 1) ? "s" : "") + " stored in your browser";
+
+            document.getElementById("deleteImgs").style.display = "inline";
+
+        } else {
+            document.getElementById("state").innerHTML = "No images stored in your browser.";
+            document.getElementById("deleteImgs").style.display = "none";
+        }
+
+
+    }
+
+    function deleteImages() {
+        imagesObject = [];
+        localStorage.removeItem("images");
+        displayNumberOfImgs()
+        document.getElementById('list').innerHTML = "";
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    document.getElementById('deleteImgs').addEventListener("click", deleteImages);
+    loadFromLocalStorage();
+</script>
+
+</html>

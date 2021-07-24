@@ -1,0 +1,44 @@
+.bootstrap-tagsinput {
+    width: 100%;
+    text-transform: lowercase;
+    display: inline-block;
+    color: black;
+    border: 2px solid black;
+    font-family: 'IBM Plex Serif', serif;
+    border-radius: 5px;
+}
+
+.label-info {
+    background-color: #161b22;
+    text-transform: lowercase;
+    padding: 2px;
+}
+
+.dropzone {
+    border: 4px dashed grey;
+    border-radius: 5px;
+    color: black;
+}
+
+.dropzone .dz-message {
+    padding: 5% 0;
+    margin: 0px;
+}
+
+input {
+    /* position: relative;
+    width: 80%; */
+    font-size: 1em;
+    padding: 1.2em 1.7em 1.2em 1.7em;
+    /* border-radius: 10px; */
+    border: none;
+    background-color: rgb(214, 214, 214);
+    outline: none;
+    font-weight: bold;
+    transition: 0.4s;
+    padding: 0.5em;
+    color: black;
+    border: 1px solid grey;
+    border-radius: 5px;
+    text-transform: lowercase !important;
+}

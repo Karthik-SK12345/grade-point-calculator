@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="og:description" content="CALCULATE YOUR BMSCE SGPA,CGPA, PERCENTAGE AND STORE YOUR DATA.">
+    <meta name="author" content="developed by Karthik.S (UG CSE BMSCE)" />
+    <meta property="og:title" content="SGPA,CGPA, PERCENTAGE CALCULATOR FOR BMSCE STUDENTS" />
+    <meta property="og:url" content="https://bmsce-dynamicsgpacalculator.netlify.app/" />
+    <meta name="description" content="CALCULATE SGPA,CGPA,PERCENTAGE AND STORE DATA OF BMSCE RESULTS QUICKLY HERE!">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>BMSCE GP CALCULATOR</title>
+    <link rel="icon" href="/assets/images/preloader.jpg" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+
+<script>
+    function bootnavbar(el = 'main_navbar', options) {
+        let defaultOption = {
+
+        }
+
+        options = {...defaultOption,
+            ...options
+        }
+
+
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
+        this.init = function() {
+            var dropdowns = document.getElementById(el).getElementsByClassName("dropdown");
+            console.log(dropdowns);
+            for (var i = 0; i < dropdowns.length; i++) {
+                var dropdown = dropdowns.item(i);
+                dropdown.addEventListener("mouseover", function() {
+                    this.classList.add('show');
+                    this.getElementsByClassName("dropdown-menu")[0].classList.add('show');
+                });
+                dropdown.addEventListener("mouseout", function() {
+                    this.classList.remove('show');
+                    this.getElementsByClassName("dropdown-menu")[0].classList.remove('show');
+                });
+            }
+
+        }
+
+        this.init();
+    }
+</script>
+<style>
+    #loader-img {
+        background-image: url('/assets/images/bmsce-logo.png');
+    }
+</style>
+
+<div id="preloader">
+    <div id="loader-img">
+        <div id="loader" style="border-radius: 10rem;"></div>
+    </div>
+
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+</style>
+<nav class="navbar navbar-expand-md navbar-faded bg-faded">
+
+    <div class="mx-auto order-0">
+        <br>
+        <a id="navname" class="navbar-brand abs" href="#" style="pointer-events:none;font-weight:bolder;margin-top: -1.7rem;">
+            <p id="resphead" style="color:#0088cc;">SEMESTER / CUMMULATIVE <br> GRADE POINTS CALCULATOR</p>
+        </a>
+        <br>
+    </div>
+    <img id="imgnav" src="/assets/images/bmsce.png" class="img-fluid" alt="...">
+
+</nav>
+<style>
+    .nav-item:hover,
+    .nav-link:hover {
+        color: black;
+        background-color: grey;
+    }
+    
+    @media only screen and (max-width:500px) {
+        .divider-vertical-second-menu {
+            display: none;
+        }
+    }
+    
+    .divider-vertical-second-menu {
+        height: 30px;
+        width: 1px;
+        margin: 0 5px;
+        overflow: hidden;
+        background-color: #DDD;
+        border-right: 2px solid #FFF;
+        margin-top: 0.35rem;
+    }
+</style>
+<nav class="navbar navbar-expand-xl navbar-light  py-0 " id="main_navbar" style="font-size: 16px;padding-top: 1rem;background-color: #0088cc;">
+    <div class="container-fluid ">
+        <a class="navbar-brand py-0" href="homepage.html" style="margin-top: 10px;margin-bottom: 0.5rem;">
+
+            <b style="color: white;" id="mybmsce"><b style="margin-top: 5px;"></b> GP CALCULATOR</b>
+        </a>
+        <button class="navbar-toggler py-0 btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon py-0"></span>
+        </button>
+        <div class="collapse navbar-collapse py-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item  active ">
+                    <a class="nav-link " href="homepage.html" id="nav_items" style="color: white;"><b>HOME </b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link " href="sgpa-main.html" id="nav_items" style="color: white;"><b>SGPA CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled" href="cgpa-main.html" id="nav_items" style="color: #161b22;"><b>CGPA CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link " href="percentage-main.html" id="nav_items" style="color: white;"><b>% CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://results.bmsce.in/" id="nav_items" style="color: white;"><b>RESULTS</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="index.html" id="nav_items" style="color: white;"><b>EXIT - NEW ENTRY</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<style>
+    .card {
+        box-shadow: 0 0 5px 5px grey;
+    }
+    
+    .card-img-top {
+        border: 2px solid white;
+    }
+</style>
+<style>
+    /* Style inputs, select elements and textareas */
+    
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        text-transform: uppercase;
+    }
+    /* Style the label to display next to the inputs */
+    
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    /* Style the submit button */
+    
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    /* Style the submit button */
+    
+    input[type=button] {
+        background-color: #ff0000;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+    }
+    /* Style the container */
+    
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    /* Floating column for labels: 25% width */
+    
+    .col-25 {
+        float: left;
+        width: 15%;
+        margin-top: 6px;
+    }
+    /* Floating column for inputs: 75% width */
+    
+    .col-75 {
+        float: left;
+        width: 29%;
+        margin-top: 6px;
+    }
+    /* 
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 600px) {
+        .col-25,
+        .col-75,
+        .col-50,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-weight: bolder;
+        font-family: 'IBM Plex Serif', serif;
+        width: 100%;
+        font-weight: bolder;
+        border: 3.5px solid #161b22;
+        text-transform: uppercase;
+        ;
+        border-radius: 5px;
+    }
+    
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border: 3.5px solid #161b22;
+        font-weight: bolder;
+        text-transform: uppercase;
+        ;
+        border-radius: 5px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #b3ffb3;
+        text-transform: uppercase;
+        background-color: #f2f2f2;
+        font-weight: bolder;
+        ;
+        border-radius: 5px;
+    }
+    
+    .center {
+        text-align: center;
+        ;
+        border-radius: 5px;
+    }
+    
+    input {
+        text-transform: uppercase;
+    }
+    
+    select {
+        display: block;
+        background: #d5fc92;
+        border-radius: 4px;
+        border: 2px solid #161b22;
+        /* margin: 0.2rem;
+        padding: 0.4rem 1rem; */
+        color: #161b22;
+        font-weight: bold;
+        text-align-last: center;
+        text-align-last: center;
+        -moz-text-align-last: center;
+        font-size: 16px;
+    }
+    
+    input {
+        display: block;
+        background: #d5fc92;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        border: 2px solid #161b22;
+        padding: 0.65rem;
+        width: 100%;
+        color: #161b22;
+        font-weight: bold;
+        text-align-last: center;
+        text-align-last: center;
+        -moz-text-align-last: center;
+        font-size: 16px;
+    }
+    
+    #blue {
+        display: inline;
+        background: #d5fc92;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        border: 2px solid #161b22;
+        padding: 0.65rem;
+        color: #161b22;
+        font-weight: bold;
+        text-align-last: center;
+        text-align-last: center;
+        -moz-text-align-last: center;
+        font-size: 16px;
+    }
+    
+    #sgpa_css {
+        border: 1.4px solid white;
+        font-weight: 600;
+        min-width: 250px;
+        width: max-content;
+        font-size: 16px;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    
+    #wrapper {
+        position: relative;
+    }
+    
+    #content {
+        padding-bottom: 100px;
+        /* Height of the footer element */
+    }
+    
+    #footer {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(41, 38, 38);
+        color: white;
+        text-align: center;
+        height: 2.1rem;
+        text-align: center;
+        font-size: 16px;
+        padding-top: 12px;
+        padding-bottom: 3.6rem;
+        font-weight: bold;
+    }
+    
+    @media print {
+        #footer,
+        #clear,
+        #download,
+        #main_navbar,
+        #info {
+            display: none;
+        }
+        .name,
+        #usn,
+        #branch,
+        #semester,
+        label,
+        .container,
+        span,
+        #Step3_cgpa #FinalCGPA_cgpa {
+            color: black;
+        }
+        label,
+        button,
+        #download,
+        #sgpatoper {
+            color: black;
+        }
+        #userdetails {
+            text-align: left;
+        }
+        #imgdiv {
+            display: block;
+        }
+        body,
+        html {
+            background-color: white;
+            color: black;
+        }
+    }
+    
+    #wrapper {
+        position: relative;
+    }
+    
+    #content {
+        padding-bottom: 100px;
+        /* Height of the footer element */
+    }
+    
+    #userdetails {
+        text-align: left;
+    }
+    
+    #footer {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(41, 38, 38);
+        color: white;
+        text-align: center;
+        height: 2.1rem;
+        text-align: center;
+        font-size: 16px;
+        padding-top: 12px;
+        padding-bottom: 3.6rem;
+        font-weight: bold;
+    }
+    
+    #wrapper {
+        position: relative;
+    }
+    
+    #content {
+        padding-bottom: 100px;
+        /* Height of the footer element */
+    }
+    
+    #footer {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(41, 38, 38);
+        color: white;
+        text-align: center;
+        height: 2.1rem;
+        text-align: center;
+        font-size: 16px;
+        padding-top: 12px;
+        padding-bottom: 3.6rem;
+        font-weight: bold;
+    }
+    
+    #footer {
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+    }
+    
+    #status {
+        margin-top: 17rem;
+        border: 3px solid white;
+        animation: beat .33s infinite alternate;
+    }
+    
+    @keyframes beat {
+        to {
+            transform: scale(1.3);
+        }
+    }
+    
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        z-index: 100;
+        animation: beat .33s infinite alternate;
+        /* border: 3px solid white;s */
+        /* margin-top: 17rem; */
+    }
+    
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* right: 0s */
+        /* width: 100%;
+        height: 100%; */
+        /* z-index: 100; */
+        background-color: white;
+    }
+    
+    #loader-img {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        z-index: 1001;
+        background-image: url('/assets/images/bmsce-logo.png');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+        z-index: 1020;
+        border-radius: 10rem;
+        background-color: white;
+    }
+    
+    #loader {
+        display: block;
+        position: relative;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: red;
+        /* -webkit-animation: spin 2s linear infinite; */
+        animation: spin 4s linear infinite;
+        z-index: 1001;
+        background-color: white;
+    }
+    
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: blue;
+        /* -webkit-animation: spin 3s linear infinite; */
+        animation: spin 3s linear infinite;
+    }
+    
+    label {
+        text-transform: uppercase;
+    }
+    
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: yellow;
+        /* -webkit-animation: spin 1.5s linear infinite; */
+        animation: spin 3s linear infinite;
+        background-color: white;
+    }
+    
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    .loader-section {
+        position: fixed;
+        top: 0;
+        width: 51%;
+        height: 100%;
+        background-color: white;
+        z-index: 1000;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0)
+    }
+    
+    .loader-section.section-left {
+        left: 0
+    }
+    
+    .loader-section.section-right {
+        right: 0
+    }
+    
+    .panel_left {
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        transform: translateX(-100%);
+        -webkit-transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+    }
+    
+    .panel_right {
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        transition: all .7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000)
+    }
+    
+    .loaded-circle {
+        opacity: 0;
+        /* border-radius: 10rem; */
+        -webkit-transition: all 1s ease-out;
+        transition: all 1s ease-in;
+        background-color: white;
+    }
+    
+    .loaded-img {
+        /* border-radius: 10rem; */
+        visibility: hidden;
+        /* /* -webkit-transform: translateY(-100%); */
+        /* -ms-transform: translateY(-100%); */
+        /* transform: translateY(-100%); */
+        -webkit-transition: all .1.5s 2s ease-out;
+        transition: all .1.5s 2s ease-in;
+        background-color: white;
+    }
+    
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #f9c922;
+        -webkit-animation: spin 1.5s linear infinite;
+        /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 1.5s linear infinite;
+        /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+    
+     :root {
+        --background-color: #fff;
+        --border-color: #ccc;
+        --text-color: #555;
+        --selected-text-color: rgb(56, 241, 164);
+        --hover-background-color: #eee;
+    }
+    
+    .yearpicker-container {
+        position: absolute;
+        color: var(--text-color);
+        width: 280px;
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+        font-size: 1rem;
+        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.2);
+        background-color: var(--background-color);
+        z-index: 10;
+        margin-top: 0.2rem;
+    }
+    
+    .yearpicker-header {
+        display: flex;
+        width: 100%;
+        height: 2.5rem;
+        border-bottom: 1px solid var(--border-color);
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .yearpicker-prev,
+    .yearpicker-next {
+        cursor: pointer;
+        font-size: 2rem;
+    }
+    
+    .yearpicker-prev:hover,
+    .yearpicker-next:hover {
+        color: var(--selected-text-color);
+    }
+    
+    .yearpicker-year {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    
+    .yearpicker-items {
+        list-style: none;
+        padding: 1rem 0.5rem;
+        flex: 0 0 33.3%;
+        width: 100%;
+    }
+    
+    .yearpicker-items:hover {
+        background-color: var(--hover-background-color);
+        color: var(--selected-text-color);
+        cursor: pointer;
+    }
+    
+    .yearpicker-items.selected {
+        color: var(--selected-text-color);
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    .yearpicker-items.disabled {
+        pointer-events: none;
+        color: #bbb;
+    }
+    
+    @media print {
+        #footer,
+        #clear,
+        #download,
+        #main_navbar,
+        #info {
+            display: none;
+        }
+        .name,
+        #usn,
+        #branch,
+        #semester,
+        label,
+        .container,
+        span,
+        #Step3_cgpa #FinalCGPA_cgpa {
+            color: black;
+        }
+        label,
+        button,
+        #download,
+        #sgpatoper {
+            color: black;
+        }
+        #userdetails {
+            text-align: left;
+        }
+        #imgdiv {
+            display: block;
+        }
+        body,
+        html {
+            background-color: white;
+            color: black;
+        }
+        #navname {
+            padding: 2rem;
+            /* margin: 2rem; */
+            margin-top: 2rem;
+            text-align: center;
+            margin-bottom: 12rem;
+        }
+        #imgnav {
+            margin-top: 12rem;
+            position: absolute;
+            top: 3rem;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        #userdetails {
+            margin-top: 21rem;
+        }
+    }
+    
+    select,
+    input {
+        /* position: relative;
+                    width: 80%; */
+        font-size: 1em;
+        padding: 1.2em 1.7em 1.2em 1.7em;
+        /* border-radius: 10px; */
+        border: none;
+        background-color: rgb(214, 214, 214);
+        outline: none;
+        font-weight: bold;
+        transition: 0.4s;
+        padding: 0.5em;
+        color: black;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+    
+    .float {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 40px;
+        right: 15px;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 3px 3px 3px #999;
+        stroke: #fff;
+        background-color: #25D366;
+        border-color: #fff
+    }
+    
+    @media (min-width: 768px) {
+        .navbar-brand.abs {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        }
+    }
+    
+    .col-50 {
+        float: left;
+        width: 44%;
+        margin-top: 6px;
+    }
+    
+    label {
+        border-radius: 5px;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .col-25,
+        .col-75,
+        .col-50,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+        hr {
+            width: 100%;
+        }
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    .nav-item:hover,
+    .nav-link:hover {
+        background-color: #9392ad;
+    }
+    
+    @media print {
+        #footer,
+        #clear,
+        #download,
+        #main_navbar,
+        #info {
+            display: none;
+        }
+        .name,
+        #usn,
+        #branch,
+        #semester,
+        label,
+        .container,
+        span,
+        #Step3_cgpa #FinalCGPA_cgpa {
+            color: black;
+        }
+        label,
+        button,
+        #download,
+        #sgpatoper {
+            color: black;
+        }
+        #userdetails {
+            text-align: left;
+        }
+        #imgdiv {
+            display: block;
+        }
+        body,
+        html {
+            background-color: white;
+            color: black;
+        }
+        #navname {
+            padding: 7rem;
+            /* margin: 2rem; */
+            margin-top: 13rem;
+            text-align: center;
+            margin-bottom: 22rem;
+        }
+        #imgnav {
+            margin-top: 13rem;
+            position: absolute;
+            top: 3rem;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 90px;
+            width: 500px
+        }
+        #userdetails {
+            margin-top: 21rem;
+        }
+        #signstu {
+            color: #0088cc;
+        }
+        #signpro {
+            color: #0088cc;
+        }
+        .name {
+            color: black;
+        }
+        #myDiv {
+            color: #0088cc;
+        }
+        #myDiv1 {
+            color: #0088cc;
+        }
+        #perinfo {
+            display: none;
+        }
+    }
+    
+    th {
+        font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;
+    }
+    
+    table tr:last-child {
+        font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;
+    }
+    
+    h5 {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    .md-stepper-horizontal {
+        display: table;
+        width: 100%;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+    }
+    
+    .md-stepper-horizontal .md-step {
+        display: table-cell;
+        position: relative;
+        padding: 3px;
+    }
+    
+    .md-stepper-horizontal .md-step:hover,
+    .md-stepper-horizontal .md-step:active {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    .md-stepper-horizontal .md-step:active {
+        border-radius: 15% / 75%;
+    }
+    
+    .md-stepper-horizontal .md-step:first-child:active {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    .md-stepper-horizontal .md-step:last-child:active {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .md-stepper-horizontal .md-step:hover .md-step-circle {
+        background-color: #f2f2f2;
+    }
+    
+    .md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+    .md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+        display: none;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-circle {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    
+    .md-stepper-horizontal.green .md-step.active .md-step-circle {
+        background-color: #00AE4D;
+    }
+    
+    .md-stepper-horizontal.orange .md-step.active .md-step-circle {
+        background-color: #F96302;
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-circle {
+        background-color: rgb(33, 150, 243);
+    }
+    
+    .md-stepper-horizontal .md-step.done .md-step-circle:before {
+        font-family: 'FontAwesome';
+        font-weight: 100;
+        content: "\f00c";
+    }
+    
+    .md-stepper-horizontal .md-step.done .md-step-circle *,
+    .md-stepper-horizontal .md-step.editable .md-step-circle * {
+        display: none;
+    }
+    
+    .md-stepper-horizontal .md-step.editable .md-step-circle {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    
+    .md-stepper-horizontal .md-step.editable .md-step-circle:before {
+        font-family: 'FontAwesome';
+        font-weight: 100;
+        content: "\f040";
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-title {
+        margin-top: 16px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-title,
+    .md-stepper-horizontal .md-step .md-step-optional {
+        text-align: center;
+        color: rgba(0, 0, 0, .26);
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-title {
+        font-weight: 600;
+        color: rgba(0, 0, 0, .87);
+    }
+    
+    .md-stepper-horizontal .md-step.active.done .md-step-title,
+    .md-stepper-horizontal .md-step.active.editable .md-step-title {
+        font-weight: 600;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-optional {
+        font-size: 12px;
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-optional {
+        color: rgba(0, 0, 0, .54);
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-left,
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+        position: absolute;
+        top: 18px;
+        height: 5px;
+        border-top: 5px solid #DDDDDD;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+        right: 0;
+        left: 50%;
+        margin-left: 20px;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-left {
+        left: 0;
+        right: 50%;
+        margin-right: 20px;
+    }
+    
+    #list img {
+        max-width: 330px;
+        height: 180px;
+        display: inline;
+        border: 3px solid grey;
+        border-radius: 0.7rem;
+    }
+    
+    #deleteImgs {
+        display: none;
+    }
+    
+    @media ( min-width: 600px) {
+        .flexbox {
+            display: -webkit-flex;
+            display: flex;
+        }
+        .main {
+            margin-right: 5rem;
+        }
+    }
+</style>
+
+<body>
+    <div style="margin-top: 1.5rem;margin-bottom: 1rem;display: none;" id="imgdiv"> <img id="bmsce_logo" src="/assets/images/logo.jpg" alt="..." class="rounded-circle mx-auto d-block" style="border-radius: 10rem;"></div>
+
+    <div class="container" id="userdetails" style="margin-top: 6rem;font-size: 16px;">
+
+        <div class="flexbox">
+            <article class="main" style="margin-left: 5rem;">
+                <span style="display: inline-block;">
+                    <p style="display: none;">Select images, they will be stored in your browser and will be displayed even after reload. Selecting big images (&gt; 2MB) can crash your browser.</p>
+                    <input type="file" id="files" style="display: none;">
+                
+                
+                    <p id="state" style="display: none;">No images stored in your browser.</p>
+                    <span id="list">
+                    </span>
+
+                <a href="#" id="deleteImgs" style="visibility: hidden;">Delete Images</a>
+                </span>
+            </article>
+            <div style="margin-right:-7rem;"></div>
+            <section class="side" style="margin-left: -1rem;">
+                <span style="font-size: 16px;margin-right: 2.2rem;color: #0088cc;"></i><b>NAME : </b></span> <label class="name" style="font-size: 16px;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;@media print{color:black}"></label>
+                <br>
+
+                <span style="font-size: 16px;margin-right: 3rem;color: #0088cc;"><b>USN : </b> </span>
+                <span><label id="usn" style="min-width: 50%;;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+                </span>
+                <br>
+
+                <span style="font-size: 16px;margin-right: 0.9rem;color: #0088cc;"><b>BRANCH : </b> </span>
+                <span><label id="branch" style="min-width: 50%;;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+                </span>
+                <br>
+                <span style="font-size: 16px;color: #0088cc;"><b>SEMESTER : </b> </span>
+                <span><label id="semester" style="min-width: 50%;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+                </span>
+            </section>
+        </div>
+        <!-- <span style="font-size: 16px;margin-right: 2.2rem;color: #0088cc;"></i><b>NAME : </b></span> <label class="name" style="min-width: 50%;font-size: 16px;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;@media print{color:black}"></label>
+        <br>
+
+
+        <span style="font-size: 16px;margin-right: 3rem;color: #0088cc;"><b>USN : </b> </span>
+        <span><label id="usn" style="min-width: 50%;;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+        <br></span>
+
+
+        <span style="font-size: 16px;margin-right: 0.9rem;color: #0088cc;"><b>BRANCH : </b> </span>
+        <span><label id="branch" style="min-width: 50%;;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+        <br></span>
+        <span style="font-size: 16px;color: #0088cc;"><b>SEMESTER : </b> </span>
+        <span><label id="semester" style="min-width: 50%;color: black;text-align: left;font-weight: bolder;padding: 0.5rem;font-size: 16px;"></label></span>
+        <br></span> -->
+    </div>
+
+    <br><br>
+    <div class="container" id="Step1_cgpa">
+        <!-- <div class="col-75"> <label class="label success" style="background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem">CGPA CALCULATION - STEP 1. ENTER NUMBER OF SEMESTERS COMPLETED</label>
+        </div> -->
+
+        <!-- <div class="container" style="font-size: 16px;">
+            <div style="font-size: 18px;">
+
+                <div class="row pgb p-0 mt-3">
+                    <div class="col step complete p-0">
+                        <p>1</p>
+                        <span class="img-circle"></span></div>
+                    <div class="col step active p-0">
+                        <p>2</p>
+                        <span class="img-circle"></span></div>
+                    <div class="col step p-0">
+                        <p>3</p>
+                        <span class="img-circle"></span></div>
+                </div>
+                <div class="row pgb p-0">
+                    <div class="col text-center">
+                        <h5>Select no. of sems and subjects</h5>
+
+                    </div>
+                    <div class="col text-center">
+                        <h5>Fill the details</h5>
+
+                    </div>
+                    <div class="col text-center active">
+                        <h5>Download your marks card</h5>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-75'> <label class="label success" style="min-width:100%;background-color: #042893;color: white;text-align: center;font-weight: bolder;padding: 0.5rem">ENTER SEMESTERS COMPLETED - (CGPA)</label>
+            </div>
+            <div class='col-25'>
+                <select id="total_cgpa" style="text-align: center; text-align-last: center;">
+                    <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select></div>
+        </div> -->
+
+
+        <div class="row_cgpa">
+
+        </div>
+
+        <br />
+
+        <br/>
+
+
+    </div>
+
+    <div id="main">
+        <!-- HEADER NAME WITH LOGO  -->
+        <div class="container" id="Step1">
+            <!-- <div class="col-75"> <label class="label success" style="background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem">CGPA CALCULATION - STEP 1. ENTER NUMBER OF SEMESTERS COMPLETED</label>
+            </div> -->
+            <div class="container" id="userdetails" style="margin-top: -6rem;font-size: 16px;">
+                <label class="label success" style="width: 100%;color: #0088cc;background-color: #f0f0f0;text-align: center;font-weight: bolder;padding: 0.5rem; font-family: 'IBM Plex Serif', serif;"><i class="fa fa-info-circle" aria-hidden="true"></i> A QUICK GUIDE TO SGPA/CGPA/% CALCULATION</label>
+
+            </div>
+
+
+            <div class="container" style="font-size: 16px;margin-top: -2.5rem;">
+                <div style="font-size: 16px;">
+
+                    <div class="md-stepper-horizontal ">
+                        <div class="md-step active ">
+                            <div class="md-step-circle"><span>1</span></div>
+                            <div class="md-step-title">Enter No. Of Semesters completed.</div>
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+                        <div class="md-step active ">
+                            <div class="md-step-circle"><span>2</span></div>
+                            <div class="md-step-title">Fill in all Details Required Under Step 2.</div>
+
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+                        <div class="md-step active " style="margin-right: 2rem;">
+                            <div class="md-step-circle"><span>3</span></div>
+                            <div class="md-step-title">Download Your Marks card Under Step 3.</div>
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-75'> <label class="label success" style="color: #0088cc;text-align: center;font-size: 17px;padding: 0.5rem;font-style: none;font-weight: 600 !important;">Enter semesters completed - (CGPA) : </label>
+                </div>
+                <div class='col-25'>
+                    <select id="total" style="text-align: center; text-align-last: center;">
+                        
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select></div>
+            </div>
+
+
+            <div class="row">
+
+            </div>
+
+            <br />
+
+            <div class="btn-group" style="margin-top: 1rem;">
+                <button type="submit" id="radios" class="btn btn-success" onclick="showMarks();" value="Submit" style="border: 2px solid #161b22;margin-right: 1rem;background-color: #042893;;font-weight:bolder;border-radius: 5px;"> SUBMIT</button><br><br>
+                <button type="button" id="clear" class="btn btn-success disabled" onclick="ClearData()" value="Clear" style="border: 2px solid #161b22;background-color: #042893;;font-weight:bolder;border-radius: 5px;"> CLEAR</button><br><br>
+
+            </div>
+
+        </div>
+        <!-- <div class="container" id="Step1" style="margin-top: -2rem;">
+
+            <div class="container" style="margin-top: 2rem;font-size: 18px;">
+                <label class="label success" style="min-width:100%;width: 100%;;background-color: #042893;color: white;text-align: center;font-weight: bolder;padding: 0.5rem"><i class="fa fa-info-circle" aria-hidden="true"></i> A QUICK GUIDE TO SGPA/CGPA/% CALCULATION</label>
+
+            </div>
+
+            <div class="container" style="font-size: 16px;">
+                <div style="font-size: 18px;">
+
+                    <div class="row pgb p-0 mt-3">
+                        <div class="col step complete p-0">
+                            <p>1</p>
+                            <span class="img-circle"></span></div>
+                        <div class="col step active p-0">
+                            <p>2</p>
+                            <span class="img-circle"></span></div>
+                        <div class="col step p-0">
+                            <p>3</p>
+                            <span class="img-circle"></span></div>
+                    </div>
+                    <div class="row pgb p-0">
+                        <div class="col text-center">
+                            <h5>Select no. of sems and subjects</h5>
+
+                        </div>
+                        <div class="col text-center">
+                            <h5>Fill the details</h5>
+
+                        </div>
+                        <div class="col text-center active">
+                            <h5>Download your marks card</h5>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-75'> <label class="label success" style="min-width:100%;background-color: #042893;color: white;text-align: center;font-weight: bolder;padding: 0.5rem">ENTER SEMESTERS COMPLETED - (CGPA)</label>
+                </div>
+                <div class='col-25'>
+                    <select id="total" style="text-align: center; text-align-last: center;">
+                        <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select></div>
+            </div>
+            <div class="btn-group" style="margin-top: 1rem;">
+                <button type="submit" id="radios" class="btn btn-success" onclick="showMarks();" value="Submit" style="border: 2px solid #161b22;margin-right: 1rem;background-color: #042893;;font-weight:bolder"> SUBMIT</button><br><br>
+                <button type="button" id="clear" class="btn btn-success disabled" onclick="ClearData()" value="Clear" style="border: 2px solid #161b22;background-color: crimson;;font-weight:bolder"> CLEAR</button><br><br>
+
+            </div>
+        </div> -->
+        <br/>
+
+
+
+    </div>
+    <br />
+
+    <div class="container" id="Step2" style="display: none;margin-top: -12rem;">
+
+        <hr>
+        <div class="row" id="perinfo">
+            <div> <label class="label success" style="min-width:100%;color: #042893;text-align: left;font-weight: bolder;;font-family: 'IBM Plex Serif', serif;"><i
+                        class="fa fa-info-circle" style="width:max-content;  color: black;font-size: larger;"> </i> FOR
+                    CREDITS AND OTHER DETAILS OF YOUR BRANCH </u> ( <i class="fa fa-link"
+                        style="width:max-content;  color: black;font-size: larger;"> </i> <span
+                        id="branch_link"></span>).</label>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class='col-50'> <label class="label success" style="min-width:100%;color: #042893;text-align: center;font-weight: bolder;padding: 0.5rem; font-family: 'IBM Plex Serif', serif;"><i class="fa fa-check-circle"
+                style="width:max-content;  color: black;font-size: larger;"> </i> CGPA CALCULATION </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div> <label class="label success" style="min-width:100%;color: #042893;text-align: left;font-weight: bolder;margin-bottom: -1rem;;font-family: 'IBM Plex Serif', serif;"><i class="fa fa-info-circle"
+                style="width:max-content;  color: black;font-size: larger;"> </i> FOR <u style="font-family: 'IBM Plex Serif', serif;">CREDITS</u>  : ENTER THE TOTAL COURSE CREDITS REGISTERED.</label>
+            </div>
+        </div>
+        <div class="row">
+            <div> <label class="label success" style="min-width:100%;color: #042893;text-align: left;font-weight: bolder; font-family: 'IBM Plex Serif', serif;"><i class="fa fa-info-circle"
+                style="width:max-content;  color: black;font-size: larger;"> </i> FOR <u style="font-family: 'IBM Plex Serif', serif;">SGPA</u>  : ENTER THE RESPECTIVE SEMESTER SGPA. (IF YOU HAVEN'T CALCULATED SGPA, <a href="sgpa-main.html">CLICK HERE</a> ).</label>
+            </div>
+        </div>
+
+        <hr style="color:black;margin-top:1rem; border-top: 1px dotted red; height: 10px;
+        border: 0;
+        box-shadow: 0 5px 5px -5px grey inset;height: 3px;width:98.5%">
+        <!-- <div class="row_cgpa">
+                <input type="submit" value="SGPA Calculator" onclick="window.location.href='#'">
+            </div> -->
+        <div class="row_cgpa" id="dynamicInput_cgpa">
+        </div><br/>
+        <div class="row" id="dynamicInput">
+        </div><br/>
+        <div class="btn-group" style="margin-bottom: 2rem;">
+            <button type="submit" id="__lets_calc_btn" class="btn btn-success" onclick="calculate();" value="Calculate" style="border: 2px solid #161b22;margin-right: 1rem;background-color: #042893;;font-weight:bolder;border-radius: 5px;"> CALCULATE</button><br><br>
+            <button type="button" id="clear" class="btn btn-success disabled" onclick="ClearData()" value="Clear" style="border: 2px solid #161b22;background-color: #042893;;font-weight:bolder;border-radius: 5px;"> CLEAR</button><br><br>
+
+        </div>
+        <!-- <div class="row">
+                <input type="submit" onclick="WhatsappShare()" style="float:center;" value="Whatsapp Share">
+                </input>
+            </div> -->
+
+    </div>
+    <br />
+
+    <div class="container" id="Step3" style="display: none;margin-top: -12rem;">
+        <label class="label success" style="min-width:100%;background-color: #84cfff;color: black;text-align: center;font-weight: bolder;padding: 0.5rem; font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;">FINAL CGPA RESULTS</label>
+        <div class="desp" id="CGPAResult" style="display: none;"></div>
+        <br /><br /><br />
+        <div>
+            <div class="center" style="overflow-x:auto;">
+                <table id="CGPATable" class="center">
+                    <tr style="font-weight: bolder;">
+                        <th style="font-weight: bolder;width: 24%;min-width: 25%;">SEMESTER</th>
+                        <th style="width: 24%;">SGPA</th>
+                        <th style="width: 24%;"> CREDIT</th>
+                        <th style="font-weight: bolder;width: 34%;min-width: 15%;">CREDIT POINTS (SGPA * CREDIT)</th>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <!-- <div class="desp" id="FinalCGPA"></div> -->
+
+        <br />
+        <div class="row">
+
+        </div><br /><br>
+        <center>
+            <div class="input-group mb-3" style="pointer-events: none;">
+                <div class="input-group-prepend">
+                    <button class="btn btn-success" type="button" id="sgpa_css" style="border:2px solid #161b22;background-color: #cccccc;color: black;font-weight: bolder;border-radius: 5px;font-family: 'IBM Plex Serif', serif;
+                    font-weight: bolder;"><i class="fa fa-check-circle"
+                        style="width:max-content;  color: black;font-size: larger;"> </i> FINAL CGPA  <br>            <label class="label success" style="min-width:100%;background-color: #84cfff;color: black;text-align: center;font-weight: bolder;padding: 0.5rem;margin-top: 0.3rem;border:2px solid black;font-family: 'IBM Plex Serif', serif;
+                        font-weight: bolder;" id="FinalCGPA"></label>
+                        <div class="desp" id="FinalCGPA_cgpa"></div></button>
+                </div>
+            </div>
+        </center> <br>
+
+        <center>
+            <div class="input-group mb-3" style="pointer-events: none;">
+                <div class="input-group-prepend">
+                    <button class="btn btn-success" type="button" id="sgpa_css" style="border:2px solid #161b22;background-color: #cccccc;color: black;font-weight: bolder;border-radius: 5px;font-family: 'IBM Plex Serif', serif;
+                    font-weight: bolder;"><i class="fa fa-check-circle"
+                        style="width:max-content;  color: black;font-size: larger;"> </i>  PERCENTAGE  <br>            <label class="label success" style="min-width:100%;background-color: #84cfff;color: black;text-align: center;font-weight: bolder;padding: 0.5rem;margin-top: 0.3rem;border:2px solid black;font-family: 'IBM Plex Serif', serif;
+                        font-weight: bolder;" id="cgpatoper"></label>
+                        <div class="desp" id="FinalCGPA_cgpaper"></div></button>
+                </div>
+            </div>
+        </center>
+        <div class="row" id="perinfo">
+            <div> <label class="label success" style="min-width:100%;color: #042893;text-align: left;font-weight: bolder;margin-bottom: -1rem;;font-family: 'IBM Plex Serif', serif;"><i class="fa fa-info-circle"
+                style="width:max-content;  color: black;font-size: larger;"> </i> PERCENTAGE RESULTS MAY NOT BE ACCURATE <a target="_blank"href="/assets/pdfs/percentage.pdf">CLICK HERE</a> TO KNOW HOW THIS WAS DONE.</label>
+            </div>
+        </div><br>
+
+
+
+
+
+
+        <div class="btn-group" style="margin-bottom: 2rem;">
+            <button type="submit" id="clear" class="btn btn-success" onclick="window.print();" value="Calculate" value="Clear" style="border: 2px solid #161b22;margin-right: 1rem;background-color: #042893;;font-weight:bolder;border-radius: 5px;
+            "> DOWNLOAD</button><br><br>
+            <button type="button" id="download" class="btn btn-success " onclick="ClearData();" style="border: 2px solid #161b22;background-color: #042893;;font-weight:bolder;border-radius: 5px;"> CLEAR</button><br><br>
+
+        </div>
+    </div>
+
+
+
+    </div>
+    <div style="color:white;margin-left: 2.75rem;" id="myDiv1">
+        <div id="myDiv" style="
+    font-size: larger;font-weight: bolder;"></div>
+    </div>
+
+    <div id="myDiv1">
+        <div style="color:white;
+    font-size: larger;margin-left: 2.3rem;" id="myDiv">
+            <span style="margin-left: 0.5rem;float: left;margin-top: 3rem;"></i><b>Signature of Student : </b></span> <br><label class="name" style="margin-top: 3rem;margin-left: -12.3rem;font-size: 18px;text-align: left;font-weight: bolder;padding: 0.5rem;"></label>
+            <br>
+
+
+            <span style="margin-left: 0.5rem;"></i><b>Signature of Proctor : </b></span> <br><label style="min-width: 50%;font-size: 18px;text-align: left;font-weight: bolder;padding: 0.5rem;@media print{color:black}"></label>
+            <br>
+        </div>
+    </div>
+
+</body>
+<script>
+    function showDateTime() {
+        var myDiv = document.getElementById("myDiv");
+
+        var date = new Date();
+        var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        var dayName = dayList[date.getDay()];
+        var monthName = monthNames[date.getMonth()];
+        var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+
+        var time = hour + ":" + min + ":" + sec;
+        myDiv.innerText = `Downloaded On : ${today} AT ${time}`;
+    }
+    setInterval(showDateTime, 1000);
+</script>
+
+
+<div id="wrapper">
+
+    <div id="header">
+    </div>
+    <!-- #header -->
+
+    <div id="content">
+    </div>
+    <!-- #content -->
+
+    <div id="footer"><b>&copy;</b> Copyright
+        <script>
+            document.write(new Date().getFullYear())
+        </script>. All Rights Reserved <br>Created By <a href="https://bit.ly/2XMDijq" target="_blank" style="color: hsl(197, 100%, 55%);font-size: 17px;"><b> Karthik.S</b></a> (UG CSE BMSCE)</p>
+
+    </div>
+    <!-- #footer -->
+
+</div>
+<a href="whatsapp://send?text=Link : https://bmscegpacalculator.netlify.app/" class="float">
+    <div aria-hidden="true " class="resp-sharing-button__icon resp-sharing-button__icon--solid ">
+        <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24 ">
+            <path
+                d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1
+    0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2
+    0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z " />
+        </svg>
+    </div>
+</a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<script>
+    let name = localStorage.getItem("name-key");
+
+    let usn = localStorage.getItem("usn-key");
+    let branch = localStorage.getItem("branch-key");
+    let semester = localStorage.getItem("sem-key");
+    document.getElementById("usn").innerHTML = usn;
+
+    document.getElementById("branch").innerHTML = branch;
+    document.getElementById("semester").innerHTML = semester;
+
+    for (let i = 0; i < document.getElementsByClassName("name").length; i++) {
+        document.getElementsByClassName("name")[i].innerHTML = name
+    }
+
+    document.onreadystatechange = function() {
+        if (document.readyState === "complete") {
+            $("#panel_left").addClass("panel_left");
+            $("#panel_right").addClass("panel_right");
+            $("#loader").addClass("loaded-circle");
+            $("#loader-img").addClass("loaded-img");
+            $("#preloader").addClass("loaded-img");
+        }
+    }
+</script>
+<script src="/assets/js/cgpa.js"></script>
+<script>
+    var imagesObject = [];
+
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = function(e) {
+                displayImgData(e.target.result)
+                addImage(e.target.result);
+            };
+
+            reader.readAsDataURL(f);
+        }
+    }
+
+    function loadFromLocalStorage() {
+        var images = JSON.parse(localStorage.getItem("images"))
+        let givemargin = document.getElementById("givemargin");
+        if (images && images.length > 0) {
+            imagesObject = images;
+
+            displayNumberOfImgs();
+            images.forEach(displayImgData);
+        }
+
+
+    }
+
+    function addImage(imgData) {
+        imagesObject.push(imgData);
+        displayNumberOfImgs();
+        localStorage.setItem("images", JSON.stringify(imagesObject));
+    }
+
+    function displayImgData(imgData) {
+        var span = document.createElement('span');
+        span.innerHTML = '<img class="thumb" src="' + imgData + '"/>';
+        document.getElementById('list').insertBefore(span, null);
+    }
+
+    function displayNumberOfImgs() {
+        if (imagesObject.length > 0) {
+
+            document.getElementById("state").innerHTML = imagesObject.length + " image" + ((imagesObject.length > 1) ? "s" : "") + " stored in your browser";
+
+            document.getElementById("deleteImgs").style.display = "inline";
+
+        } else {
+            document.getElementById("state").innerHTML = "No images stored in your browser.";
+            document.getElementById("deleteImgs").style.display = "none";
+        }
+
+
+    }
+
+    function deleteImages() {
+        imagesObject = [];
+        localStorage.removeItem("images");
+        displayNumberOfImgs()
+        document.getElementById('list').innerHTML = "";
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    document.getElementById('deleteImgs').addEventListener("click", deleteImages);
+    loadFromLocalStorage();
+</script>
+
+</body>

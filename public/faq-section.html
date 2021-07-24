@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="og:description" content="CALCULATE YOUR BMSCE SGPA,CGPA, PERCENTAGE AND STORE YOUR DATA.">
+    <meta name="author" content="developed by Karthik.S (UG CSE BMSCE)" />
+    <meta property="og:title" content="SGPA,CGPA, PERCENTAGE CALCULATOR FOR BMSCE STUDENTS" />
+    <meta property="og:url" content="https://bmsce-dynamicsgpacalculator.netlify.app/" />
+    <meta name="description" content="CALCULATE SGPA,CGPA,PERCENTAGE AND STORE DATA OF BMSCE RESULTS QUICKLY HERE!">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>BMSCE GP CALCULATOR</title>
+    <link rel="icon" href="/assets/images/preloader.jpg" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+
+<script>
+    function bootnavbar(el = 'main_navbar', options) {
+        let defaultOption = {
+
+        }
+
+        options = {...defaultOption,
+            ...options
+        }
+
+
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+            },
+            any: function() {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
+        this.init = function() {
+            var dropdowns = document.getElementById(el).getElementsByClassName("dropdown");
+            console.log(dropdowns);
+            for (var i = 0; i < dropdowns.length; i++) {
+                var dropdown = dropdowns.item(i);
+                dropdown.addEventListener("mouseover", function() {
+                    this.classList.add('show');
+                    this.getElementsByClassName("dropdown-menu")[0].classList.add('show');
+                });
+                dropdown.addEventListener("mouseout", function() {
+                    this.classList.remove('show');
+                    this.getElementsByClassName("dropdown-menu")[0].classList.remove('show');
+                });
+            }
+
+        }
+
+        this.init();
+    }
+</script>
+
+
+<style>
+    .fa,
+    .fas,
+    .far,
+    .fal,
+    .fab {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+    }
+    
+    .fa-spin {
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: fa-spin 2s infinite linear;
+    }
+    
+    .fa-pulse {
+        -webkit-animation: fa-spin 1s infinite steps(8);
+        animation: fa-spin 1s infinite steps(8);
+    }
+    
+    @-webkit-keyframes fa-spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes fa-spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    .fa-rotate-90 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    
+    .fa-rotate-180 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    
+    .fa-rotate-270 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+    
+    .fa-flip-horizontal {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0,mirror=1)";
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    }
+    
+    .fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2,mirror=1)";
+        -webkit-transform: scale(1, -1);
+        transform: scale(1, -1);
+    }
+    
+    .fa-flip-horizontal.fa-flip-vertical {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2,mirror=1)";
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+    }
+    
+     :root .fa-rotate-90,
+     :root .fa-rotate-180,
+     :root .fa-rotate-270,
+     :root .fa-flip-horizontal,
+     :root .fa-flip-vertical {
+        -webkit-filter: none;
+        filter: none;
+    }
+    
+    .fa-arrow-left:before {
+        content: "\f060";
+    }
+    
+    .fa-arrow-right:before {
+        content: "\f061";
+    }
+    
+    .fa-check-circle:before {
+        content: "\f058";
+    }
+    
+    .fa-check-square:before {
+        content: "\f14a";
+    }
+    
+    .fa-chevron-left:before {
+        content: "\f053";
+    }
+    
+    .fa-chevron-right:before {
+        content: "\f054";
+    }
+    
+    .fa-cog:before {
+        content: "\f013";
+    }
+    
+    .fa-compress:before {
+        content: "\f066";
+    }
+    
+    .fa-copyright:before {
+        content: "\f1f9";
+    }
+    
+    .fa-edit:before {
+        content: "\f044";
+    }
+    
+    .fa-envelope:before {
+        content: "\f0e0";
+    }
+    
+    .fa-envelope-open:before {
+        content: "\f2b6";
+    }
+    
+    .fa-exclamation-triangle:before {
+        content: "\f071";
+    }
+    
+    .fa-expand:before {
+        content: "\f065";
+    }
+    
+    .fa-file:before {
+        content: "\f15b";
+    }
+    
+    .fa-file-alt:before {
+        content: "\f15c";
+    }
+    
+    .fa-file-archive:before {
+        content: "\f1c6";
+    }
+    
+    .fa-file-code:before {
+        content: "\f1c9";
+    }
+    
+    .fa-file-pdf:before {
+        content: "\f1c1";
+    }
+    
+    .fa-folder:before {
+        content: "\f07b";
+    }
+    
+    .fa-folder-open:before {
+        content: "\f07c";
+    }
+    
+    .fa-hand-paper:before {
+        content: "\f256";
+    }
+    
+    .fa-hand-rock:before {
+        content: "\f255";
+    }
+    
+    .fa-info-circle:before {
+        content: "\f05a";
+    }
+    
+    .fa-laptop:before {
+        content: "\f109";
+    }
+    
+    .fa-lock:before {
+        content: "\f023";
+    }
+    
+    .fa-meh:before {
+        content: "\f11a";
+    }
+    
+    .fa-moon:before {
+        content: "\f186";
+    }
+    
+    .fa-question-circle:before {
+        content: "\f059";
+    }
+    
+    .fa-random:before {
+        content: "\f074";
+    }
+    
+    .fa-share-square:before {
+        content: "\f14d";
+    }
+    
+    .fa-smile:before {
+        content: "\f118";
+    }
+    
+    .fa-spinner:before {
+        content: "\f110";
+    }
+    
+    .fa-sun:before {
+        content: "\f185";
+    }
+    
+    .fa-toggle-off:before {
+        content: "\f204";
+    }
+    
+    .fa-toggle-on:before {
+        content: "\f205";
+    }
+    
+    @font-face {
+        font-family: "Font Awesome 5 Brands";
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url("https://cdn.pdfmrg.com/assets/fonts/fa-brands-400.woff") format("woff");
+    }
+    
+    .fab {
+        font-family: "Font Awesome 5 Brands";
+    }
+    
+    @font-face {
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("https://cdn.pdfmrg.com/assets/fonts/fa-regular-400.woff") format("woff");
+    }
+    
+    .far {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+    }
+    
+    .fa,
+    .fas {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+    
+    textarea {
+        overflow: auto;
+    }
+    
+    textarea::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    
+    textarea::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    
+    div.clear {
+        clear: both;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+    
+     ::-webkit-input-placeholder {
+        color: #404040;
+        opacity: 1;
+    }
+    
+     ::-moz-placeholder {
+        color: #404040;
+        opacity: 1;
+    }
+    
+     :-moz-placeholder {
+        color: #404040;
+        opacity: 1;
+    }
+    
+     ::-ms-input-placeholder {
+        color: #404040;
+        opacity: 1;
+    }
+    
+     :-ms-input-placeholder {
+        color: #404040;
+        opacity: 1;
+    }
+    
+    div.wrapper {
+        width: auto;
+        height: auto;
+        margin: 0px auto;
+        padding: 12px;
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        background-size: auto;
+        background-image: url('https://cdn.pdfmrg.com/assets/images/swirl.webp');
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+    
+    header {
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+    
+    header a.logo {
+        float: left;
+        width: 180px;
+        height: auto;
+        margin: 0px 0px 16px 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+    }
+    
+    header a.logo span.large {
+        color: rgba(255, 255, 255, 1);
+        width: 180px;
+        height: 36px;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 28px;
+        font-style: normal;
+        text-align: center;
+        font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+        font-weight: bold;
+        line-height: 36px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    header a.logo span.small {
+        color: rgba(255, 255, 255, 1);
+        width: 180px;
+        height: 20px;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 15px;
+        font-style: normal;
+        text-align: center;
+        font-family: 'Arial';
+        font-weight: bold;
+        line-height: 20px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    }
+    
+    header nav {
+        float: left;
+        width: 270px;
+        height: auto;
+        margin: 0px 0px 12px 12px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+    
+    header nav a {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: 26px;
+        margin: 0px;
+        padding: 0px 12px;
+        display: block;
+        position: relative;
+        font-size: 16px;
+        text-align: left;
+        box-sizing: border-box;
+        font-weight: bold;
+        line-height: 26px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    
+    header nav a:last-of-type {
+        margin-top: 8px;
+    }
+    
+    header nav a:hover,
+    header nav a:focus,
+    header nav a.active {
+        color: rgba(96, 96, 96, 1);
+    }
+    
+    header nav a i[class] {
+        float: right;
+        width: 18px;
+        height: 26px;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 16px;
+        text-align: center;
+        line-height: 26px;
+    }
+    
+    header div.intro {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: 60px;
+        margin: 0px 0px 8px 0px;
+        padding: 0px 0px 0px 12px;
+        display: table-cell;
+        position: relative;
+        font-size: 13px;
+        text-align: justify;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        line-height: 17px;
+        vertical-align: middle;
+    }
+    
+    header div.intro strong {
+        font-weight: bold;
+    }
+    
+    .banner_top {
+        width: auto;
+        height: 90px;
+        margin: 4px auto 8px auto;
+        padding: 0px;
+        display: block;
+        position: relative;
+        text-align: center;
+    }
+    
+    @media(max-width:1018px) {
+        header nav {
+            float: none;
+            width: auto;
+            margin: 0px 0px 12px 192px;
+        }
+        header div.intro {
+            height: auto;
+            padding: 0px;
+            display: block;
+        }
+        .banner_top {
+            margin-top: 0px;
+        }
+    }
+    
+    main,
+    aside {
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+    
+    main {
+        overflow: hidden;
+    }
+    
+    aside {
+        float: right;
+        width: 336px;
+        margin-left: 8px;
+    }
+    
+    .banner_right,
+    .banner_corner {
+        width: 336px;
+        height: auto;
+        margin: 0px 0px 8px 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        text-align: center;
+        min-height: 280px;
+    }
+    
+    @media(max-width:1018px) {
+        aside {
+            width: 200px;
+        }
+        .banner_right,
+        .banner_corner {
+            width: 200px;
+            min-height: 200px;
+        }
+    }
+    
+    div.content {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 0px 0px 12px 0px;
+        padding: 8px;
+        display: block;
+        position: relative;
+        font-size: 13px;
+        box-sizing: border-box;
+        text-align: justify;
+        font-weight: normal;
+        line-height: 17px;
+    }
+    
+    div.content.transparent {
+        background: none;
+        margin-bottom: 4px;
+    }
+    
+    div.content h1 {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 18px;
+        text-align: left;
+        font-weight: bold;
+        line-height: normal;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    div.content h2 {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 12px 0px 0px 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 14px;
+        text-align: left;
+        font-weight: bold;
+        line-height: normal;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    div.content span.head {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 0px 0px 8px 0px;
+        padding: 0px 0px 8px 0px;
+        display: block;
+        position: relative;
+        font-size: 15px;
+        text-align: left;
+        font-weight: bold;
+        line-height: normal;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px dashed rgba(204, 204, 204, 1);
+    }
+    
+    div.content span.head.white {
+        color: rgba(255, 255, 255, 1);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.8);
+    }
+    
+    div.content span.head i {
+        margin-right: 6px;
+    }
+    
+    div.content span.info {
+        color: rgba(96, 96, 96, 1);
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 4px 0px 8px 0px;
+        display: block;
+        position: relative;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: normal;
+        border-bottom: 1px dashed rgba(204, 204, 204, 1);
+    }
+    
+    div.content span.info.text {
+        margin-bottom: 8px;
+    }
+    
+    div.content a {
+        color: rgba(229, 68, 68, 1);
+        text-decoration: none;
+    }
+    
+    div.content a:hover,
+    div.content a:focus {
+        text-decoration: underline;
+    }
+    
+    div.content a.tool {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: auto;
+        margin: 0px 0px 8px 0px;
+        padding: 0px 12px;
+        display: block;
+        position: relative;
+        font-size: 14px;
+        text-align: left;
+        box-sizing: border-box;
+        font-weight: bold;
+        line-height: 26px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    
+    div.content a.tool:last-of-type {
+        margin-bottom: 0px;
+    }
+    
+    div.content a.tool:hover,
+    div.content a.tool:focus {
+        color: rgba(96, 96, 96, 1);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(192, 192, 192, 1) 100%);
+    }
+    
+    div.content a.tool i {
+        float: right;
+        width: 18px;
+        height: 26px;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 14px;
+        text-align: center;
+        line-height: 26px;
+    }
+    
+    div.content ul,
+    div.content ol {
+        margin: 8px 16px;
+        padding: 8px;
+    }
+    
+    div.content div.about {
+        color: rgba(0, 0, 0, 1);
+        width: 100%;
+        height: auto;
+        margin: 0px;
+        padding: 0px 8px 0px 0px;
+        display: block;
+        position: relative;
+        overflow: auto;
+        max-height: 240px;
+        box-sizing: border-box;
+    }
+    
+    div.content div.about::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    
+    div.content div.about::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    
+    div.content div.about table td,
+    div.content div.about table th,
+    div.content div.about table caption {
+        padding: 2px 4px;
+        text-align: center;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form {
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 4px 0px 0px 0px;
+        display: block;
+        position: relative;
+        text-align: left;
+    }
+    
+    .form div.file {
+        color: white;
+        width: 100%;
+        height: 70px;
+        border: 1px solid black;
+        margin: 8px 0px 0px 0px;
+        padding: 0px 8px;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        font-size: 16px;
+        text-align: center;
+        box-sizing: border-box;
+        font-weight: bold;
+        line-height: 70px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        background-color: rgba(238, 238, 238, 1);
+        border-radius: 3px;
+    }
+    
+    .form div.file.drag {
+        background-color: rgba(204, 204, 204, 1);
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form div.file span.counter {
+        right: 2px;
+        color: black;
+        margin: 2px;
+        padding: 3px 6px;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 14px;
+        background-color: rgba(204, 204, 204, 1);
+        border: 1.5px solid black;
+        border-radius: 30%;
+    }
+    
+    .form div.file span.counter.active {
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .form div.file i {
+        margin-right: 8px;
+    }
+    
+    .form div.file input[type="file"] {
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        opacity: 0;
+        display: block;
+        position: absolute;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form textarea[name="input"],
+    div.content textarea[name="output"] {
+        width: 100%;
+        height: 212px;
+        border: 1px solid rgba(204, 204, 204, 1);
+        resize: vertical;
+        margin: 8px 0px 0px 0px;
+        padding: 4px;
+        display: block;
+        position: relative;
+        overflow: auto;
+        font-size: 13px;
+        text-align: left;
+        box-sizing: border-box;
+        min-height: 212px;
+        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        font-weight: normal;
+        line-height: normal;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form span.notice {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 8px 0px 0px 0px;
+        display: block;
+        position: relative;
+        font-size: 12px;
+        text-align: justify;
+        line-height: 18px;
+    }
+    
+    .form span.notice i[class] {
+        margin-right: 6px;
+    }
+    
+    .form input[type="number"],
+    .form select {
+        color: rgba(0, 0, 0, 1);
+        width: 160px;
+        height: 15px;
+        border: 1px solid rgba(204, 204, 204, 1);
+        margin: 8px 8px 0px 0px;
+        padding: 0px 8px;
+        display: inline-block;
+        position: relative;
+        font-size: 13px;
+        text-align: left;
+        box-sizing: border-box;
+        line-height: normal;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form select {
+        cursor: pointer;
+        padding: 0px 4px;
+    }
+    
+    .form select[disabled] {
+        color: rgba(204, 204, 204, 1);
+        cursor: not-allowed;
+    }
+    
+    .form input[type="radio"],
+    .form input[type="checkbox"] {
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        margin: 10px 8px 0px 0px;
+        padding: 0px;
+        display: inline;
+        position: relative;
+        line-height: 18px;
+        vertical-align: -2px;
+    }
+    
+    .form label {
+        color: rgba(0, 0, 0, 1);
+        width: auto;
+        height: auto;
+        margin: 8px 0px 0px 0px;
+        padding: 0px;
+        display: inline;
+        position: relative;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .form label i[class] {
+        margin-right: 6px;
+    }
+    
+    .form div.live {
+        color: rgba(0, 0, 0, 1);
+        width: 136px;
+        height: 26px;
+        cursor: pointer;
+        border: 1px solid rgba(204, 204, 204, 1);
+        margin: 8px 8px 0px 0px;
+        padding: 0px 0px 0px 8px;
+        display: inline-block;
+        position: relative;
+        font-size: 13px;
+        text-align: left;
+        box-sizing: border-box;
+        line-height: 24px;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form div.live i {
+        font-size: 15px;
+        line-height: 24px;
+        margin-right: 8px;
+    }
+    
+    .form div.live.active {
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    .banner_center {
+        width: auto;
+        height: 60px;
+        margin: 18px 0px 12px 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        text-align: center;
+    }
+    
+    .banner_center.last {
+        margin-bottom: 0px;
+    }
+    
+    .banner_crispox {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+    }
+    
+    .form div.state {
+        color: rgba(0, 0, 0, 1);
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(204, 204, 204, 1);
+        margin: 8px 0px 0px 0px;
+        padding: 8px 12px;
+        display: none;
+        position: relative;
+        font-size: 13px;
+        text-align: left;
+        box-sizing: border-box;
+        line-height: 21px;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form div.state.last {
+        margin-top: 12px;
+    }
+    
+    .form div.state i[class] {
+        margin-right: 6px;
+    }
+    
+    .form div.state a {
+        font-weight: bold;
+    }
+    
+    .form div.state hr {
+        width: 100%;
+        height: 0px;
+        border: none;
+        margin: 4px 0px 8px 0px;
+        padding: 0px;
+        border-top: 1px dashed rgba(204, 204, 204, 1);
+    }
+    
+    .form div.state textarea {
+        color: rgba(0, 0, 0, 1);
+        width: 100%;
+        height: 30px;
+        border: none;
+        resize: vertical;
+        margin: 0px;
+        padding: 0px 4px 0px 0px;
+        display: block;
+        position: relative;
+        overflow: auto;
+        font-size: 13px;
+        text-align: left;
+        box-sizing: border-box;
+        min-height: 212px;
+        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        font-weight: normal;
+        line-height: normal;
+        background-color: rgba(238, 238, 238, 1);
+    }
+    
+    .form div.file,
+    .form label,
+    .form div.live,
+    .form button {
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    }
+    
+    a.mobile {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: 26px;
+        border: 1px solid rgba(192, 192, 192, 1);
+        margin: 0px 0px 12px 0px;
+        padding: 0px;
+        display: block;
+        position: relative;
+        font-size: 14px;
+        text-align: center;
+        box-sizing: border-box;
+        font-weight: bold;
+        line-height: 24px;
+        text-decoration: none;
+        background-color: rgba(160, 160, 160, 1);
+    }
+    
+    a.mobile:hover,
+    a.mobile:focus {
+        text-decoration: underline;
+    }
+    
+    a.mobile i {
+        margin-right: 8px;
+    }
+    
+    footer {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: auto;
+        margin: 0px;
+        padding: 8px;
+        display: block;
+        position: relative;
+        font-size: 13px;
+        text-align: justify;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        line-height: 17px;
+    }
+    
+    footer i[class] {
+        margin-right: 6px;
+    }
+    
+    footer a {
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: 26px;
+        cursor: pointer;
+        margin: 8px 8px 8px 0px;
+        padding: 0px 12px;
+        display: inline-block;
+        position: relative;
+        font-size: 14px;
+        text-align: left;
+        box-sizing: border-box;
+        font-weight: bold;
+        line-height: 26px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    
+    footer a:last-of-type {
+        margin-right: 8px;
+    }
+    
+    footer a:hover,
+    footer a:focus {
+        text-decoration: underline;
+    }
+    
+    .qc-cmp2-persistent-link {
+        background-color: #276399;
+    }
+</style>
+<style>
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        /* text-transform: uppercase; */
+    }
+    /* Style the label to display next to the inputs */
+    
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    /* Style the submit button */
+    
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    /* Style the submit button */
+    
+    input[type=button] {
+        background-color: #ff0000;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+    }
+    /* Style the container */
+    
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    /* Floating column for labels: 25% width */
+    
+    .col-25 {
+        float: left;
+        width: 23%;
+        margin-top: 6px;
+    }
+    /* Floating column for inputs: 75% width */
+    
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 600px) {
+        .col-25,
+        .col-75,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-weight: bolder;
+        font-family: 'IBM Plex Serif', serif;
+        width: 100%;
+        font-weight: bolder;
+        border: 3.5px solid #161b22;
+        text-transform: uppercase;
+    }
+    
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border: 3.5px solid #161b22;
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #b3ffb3;
+        text-transform: uppercase;
+    }
+    
+    .center {
+        text-align: center;
+    }
+    
+    input {
+        /* text-transform: uppercase; */
+    }
+    /* Style inputs, select elements and textareas */
+    
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+        /* text-transform: uppercase; */
+    }
+    /* Style the label to display next to the inputs */
+    
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    /* Style the submit button */
+    
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    /* Style the submit button */
+    
+    input[type=button] {
+        background-color: #ff0000;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+    }
+    /* Style the container */
+    
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    /* Floating column for labels: 25% width */
+    
+    .col-50 {
+        float: left;
+        width: 44%;
+        margin-top: 6px;
+    }
+    
+    .col-25 {
+        float: left;
+        width: 15%;
+        margin-top: 6px;
+    }
+    /* Floating column for inputs: 75% width */
+    
+    .col-75 {
+        float: left;
+        width: 29%;
+        margin-top: 6px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 600px) {
+        .col-25,
+        .col-75,
+        .col-50,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+        hr {
+            width: 100%;
+        }
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-weight: bolder;
+        font-family: 'IBM Plex Serif', serif;
+        width: 100%;
+        font-weight: bolder;
+        border: 3.5px solid #161b22;
+        text-transform: uppercase;
+        border-radius: 5px;
+    }
+    
+    tr {
+        font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;
+    }
+    
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border: 3.5px solid #161b22;
+        font-weight: bolder;
+        text-transform: uppercase;
+        border-radius: 5px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #b3ffb3;
+        text-transform: uppercase;
+        background-color: #f2f2f2;
+        font-weight: bolder;
+        border-radius: 5px;
+    }
+    
+    .center {
+        text-align: center;
+        font-weight: bolder;
+        border-radius: 5px;
+    }
+    
+    .pgb .step {
+        text-align: center;
+        position: relative;
+    }
+    
+    .pgb h2 {
+        font-size: 1.3rem;
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    .pgb .step p {
+        position: absolute;
+        font-family: 'IBM Plex Serif', serif;
+        height: 60px;
+        width: 100%;
+        text-align: center;
+        display: block;
+        z-index: 3;
+        color: #fff;
+        font-size: 160%;
+        line-height: 55px;
+        opacity: .7;
+    }
+    
+    .pgb .active.step p {
+        opacity: 1;
+        font-weight: 600;
+    }
+    
+    .pgb .img-circle {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #9E9E9E;
+        border: 4px solid #fff;
+    }
+    
+    .pgb .complete .img-circle {
+        background: #9E9E9E;
+        color: white;
+    }
+    
+    .pgb .active .img-circle {
+        background: #9E9E9E;
+        color: white;
+    }
+    
+    .pgb .step .img-circle:before {
+        content: "";
+        display: block;
+        background: white;
+        height: 4px;
+        width: 50%;
+        position: absolute;
+        bottom: 50%;
+        left: 0;
+        z-index: -1;
+        margin-right: 24px;
+    }
+    
+    .pgb .step .img-circle:after {
+        content: "";
+        display: block;
+        background: white;
+        height: 4px;
+        width: 50%;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        z-index: -1;
+    }
+    
+    .pgb .step:last-of-type .img-circle:after,
+    .pgb .step:first-of-type .img-circle:before {
+        display: none;
+    }
+    
+    #loader-img {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        z-index: 1001;
+        background-image: url('/assets/images/bmsce-logo.png');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+        z-index: 1020;
+        border-radius: 10rem;
+        background-color: white;
+    }
+    
+    .divider-vertical-second-menu {
+        height: 30px;
+        width: 1px;
+        margin: 0 5px;
+        overflow: hidden;
+        background-color: #DDD;
+        border-right: 2px solid #FFF;
+        margin-top: 0.35rem;
+    }
+    
+    .float {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        bottom: 40px;
+        right: 15px;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 3px 3px 3px #999;
+        stroke: #fff;
+        background-color: #25D366;
+        border-color: #fff
+    }
+    
+    @media (min-width: 768px) {
+        .navbar-brand.abs {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        }
+    }
+    
+    body {
+        font-size: 16px;
+    }
+</style>
+<div id="preloader">
+    <div id="loader-img">
+        <div id="loader" style="border-radius: 10rem;"></div>
+    </div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+</style>
+<nav class="navbar navbar-expand-md navbar-faded bg-faded">
+
+    <div class="mx-auto order-0">
+        <br>
+        <a id="navname" class="navbar-brand abs" href="#" style="pointer-events:none;font-weight:bolder;margin-top: -1.7rem;">
+            <p id="resphead" style="color:#0088cc;font-size: larger;">SEMESTER / CUMMULATIVE <br> GRADE POINTS CALCULATOR</p>
+        </a>
+        <br>
+    </div>
+    <img id="imgnav" src="/assets/images/bmsce.png" class="img-fluid" alt="...">
+
+</nav>
+<style>
+    .nav-item:hover,
+    .nav-link:hover {
+        background-color: #9392ad;
+    }
+    
+    #main_navbar {
+        font-size: 16px;
+    }
+    
+    .navbar a {
+        font-size: 16px;
+    }
+    
+    #main_navbar {
+        min-height: 16px;
+    }
+</style>
+<nav class="navbar navbar-expand-xl navbar-light  py-0 " id="main_navbar" style="font-size: 16px;background-color: #0088cc;">
+    <div class="container-fluid ">
+        <a class="navbar-brand py-0" href="homepage.html" style="">
+
+            <b style="color: white;" id="mybmsce"><b style=""></b>GRADE POINT CALCULATOR</b>
+        </a>
+        <button class="navbar-toggler py-0 btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon py-0"></span>
+        </button>
+        <div class="collapse navbar-collapse py-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item  active ">
+                    <a class="nav-link " href="homepage.html" id="nav_items" style="color: white;"><b>HOME </b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="sgpa-main.html" id="nav_items" style="color: white;"><b>SGPA CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link " href="cgpa-main.html" id="nav_items" style="color: white;"><b>CGPA CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link " href="percentage-main.html" id="nav_items" style="color: white;"><b>% CALCULATOR</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled" href="faq-section.html" id="nav_items" style="color: #161b22;"><b> FAQ SECTION</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="contact.html" id="nav_items" style="color: white;"><b>CONTACT US</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://results.bmsce.in/" id="nav_items" style="color: white;"><b>RESULTS</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="index.html" id="nav_items" style="color: white;"><b>EXIT - NEW ENTRY</b>
+                    </a>
+                </li>
+                <li class="divider-vertical-second-menu"></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<style>
+    .card {
+        box-shadow: 0 0 5px 5px grey;
+    }
+    
+    .card-img-top {
+        border: 2px solid white;
+    }
+    
+    label {
+        border-radius: 5px;
+    }
+    
+    th {
+        font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;
+    }
+    
+    table tr:last-child {
+        font-family: 'IBM Plex Serif', serif;
+        font-weight: bolder;
+    }
+    
+    h5 {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    .md-stepper-horizontal {
+        display: table;
+        width: 100%;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+    }
+    
+    .md-stepper-horizontal .md-step {
+        display: table-cell;
+        position: relative;
+        padding: 3px;
+    }
+    
+    .md-stepper-horizontal .md-step:hover,
+    .md-stepper-horizontal .md-step:active {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    .md-stepper-horizontal .md-step:active {
+        border-radius: 15% / 75%;
+    }
+    
+    .md-stepper-horizontal .md-step:first-child:active {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    .md-stepper-horizontal .md-step:last-child:active {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .md-stepper-horizontal .md-step:hover .md-step-circle {
+        background-color: #f2f2f2;
+    }
+    
+    .md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+    .md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+        display: none;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-circle {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    
+    .md-stepper-horizontal.green .md-step.active .md-step-circle {
+        background-color: #00AE4D;
+    }
+    
+    .md-stepper-horizontal.orange .md-step.active .md-step-circle {
+        background-color: #F96302;
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-circle {
+        background-color: rgb(33, 150, 243);
+    }
+    
+    .md-stepper-horizontal .md-step.done .md-step-circle:before {
+        font-family: 'FontAwesome';
+        font-weight: 100;
+        content: "\f00c";
+    }
+    
+    .md-stepper-horizontal .md-step.done .md-step-circle *,
+    .md-stepper-horizontal .md-step.editable .md-step-circle * {
+        display: none;
+    }
+    
+    .md-stepper-horizontal .md-step.editable .md-step-circle {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    
+    .md-stepper-horizontal .md-step.editable .md-step-circle:before {
+        font-family: 'FontAwesome';
+        font-weight: 100;
+        content: "\f040";
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-title {
+        margin-top: 16px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-title,
+    .md-stepper-horizontal .md-step .md-step-optional {
+        text-align: center;
+        color: rgba(0, 0, 0, .26);
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-title {
+        font-weight: 600;
+        color: rgba(0, 0, 0, .87);
+    }
+    
+    .md-stepper-horizontal .md-step.active.done .md-step-title,
+    .md-stepper-horizontal .md-step.active.editable .md-step-title {
+        font-weight: 600;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-optional {
+        font-size: 12px;
+    }
+    
+    .md-stepper-horizontal .md-step.active .md-step-optional {
+        color: rgba(0, 0, 0, .54);
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-left,
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+        position: absolute;
+        top: 18px;
+        height: 5px;
+        border-top: 5px solid #DDDDDD;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+        right: 0;
+        left: 50%;
+        margin-left: 20px;
+    }
+    
+    .md-stepper-horizontal .md-step .md-step-bar-left {
+        left: 0;
+        right: 50%;
+        margin-right: 20px;
+    }
+    
+    nav {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    #main_navbar {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    #list img {
+        max-width: 370px;
+        height: 180px;
+        display: inline;
+        border: 3px solid grey;
+        border-radius: 0.7rem;
+    }
+    
+    #deleteImgs {
+        display: none;
+    }
+    
+    @media ( min-width: 600px) {
+        /* .main {
+            margin-right: 5rem;
+        } */
+        /* .flexbox {
+            display: -webkit-flex;
+            display: flex;
+        } */
+    }
+    
+    #list {
+        width: 120px;
+        height: 120px;
+        height: auto;
+        float: left;
+        margin: 3px;
+        padding: 3px;
+    }
+    
+    label {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    span,
+    #userdetails {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    b,
+    button,
+    .btn {
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    table {
+        font-family: 'IBM Plex Serif', serif;
+        text-align: left;
+        color: black;
+    }
+    
+    .contact-form>#name {
+        /* position: relative;
+                    width: 80%; */
+        font-size: 1em;
+        padding: 1.2em 1.7em 1.2em 1.7em;
+        /* border-radius: 10px; */
+        border: none;
+        background-color: rgb(214, 214, 214);
+        outline: none;
+        font-weight: bold;
+        transition: 0.4s;
+        padding: 0.5em;
+        color: black;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    .contact-form>#usn {
+        font-size: 1em;
+        padding: 1.2em 1.7em 1.2em 1.7em;
+        /* border-radius: 10px; */
+        border: none;
+        background-color: rgb(214, 214, 214);
+        outline: none;
+        font-weight: bold;
+        transition: 0.4s;
+        padding: 0.5em;
+        color: black;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-family: 'IBM Plex Serif', serif;
+    }
+    
+    .embed-responsive {
+        max-width: 1360px;
+        height: 352px;
+    }
+    
+    iframe#show {
+        /* set this to approximate width of entire page you're embedding */
+        height: 1500px;
+        /* determines where the bottom of the page cuts off */
+        margin-top: -350px;
+        /* clipping top of page */
+        overflow: hidden;
+        /* resize seems to inherit in at least Firefox */
+        -webkit-resize: none;
+        -moz-resize: none;
+        resize: none;
+    }
+    
+    body {
+        font-size: 18px;
+    }
+</style>
+
+<body>
+
+
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+    </head>
+
+    <body class="bg-gray-100 font-display">
+        <div class="">
+            <div class="">
+                <div class="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
+                    <div class="cursor-pointer flex items-center">
+                        <div>
+                            <svg class="w-10 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 225 225" style="enable-background:new 0 0 225 225;" xml:space="preserve">
+                                    <style type="text/css">
+                                        .st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}
+                                    </style>
+                                    <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                                    <g>
+                                    <path id="Layer0_0_1_STROKES" class="st0" d="M173.8,151.5l13.6-13.6 M35.4,89.9l29.1-29 M89.4,34.9v1 M137.4,187.9l-0.6-0.4     M36.6,138.7l0.2-0.2 M56.1,169.1l27.7-27.6 M63.8,111.5l74.3-74.4 M87.1,188.1L187.6,87.6 M110.8,114.5l57.8-57.8"/>
+                                    </g>
+                                    </g>
+                                </svg>
+                        </div>
+                        <div class="text-2xl text-indigo-800 ml-2 font-semibold">FAQ-SECTION</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mt-8 opacity-75">
+                    <svg class="w-1/2 max-w-screen-sm mx-auto" xmlns="http://www.w3.org/2000/svg" id="ffb55883-6880-4c99-84fd-4a8eccb5f463" data-name="Layer 1" viewBox="0 0 887.5 444.00977">
+                            <title>faq</title>
+                            <rect x="458.1306" y="29.39525" width="395.03806" height="197.51903" fill="#e6e6e6"/>
+                            <path d="M568.96144,634.04282l9.35626-2.69673a122.56069,122.56069,0,0,0,4.24249-13.14691l-4.39393-.16027,4.79042-1.38071c1.3869-5.52747,1.95534-9.27568,1.95534-9.27568s-18.97583,5.65159-33.26621,16.68071l-1.763,12.37-1.68667-9.51114a49.58614,49.58614,0,0,0-4.39157,4.42083c-13.75738,15.817-19.74417,33.13225-13.37187,38.67479s22.69063-2.78652,36.448-18.60347a65.281,65.281,0,0,0,10.215-17.07477Z" transform="translate(-156.25 -227.99512)" fill="#e6e6e6"/>
+                            <path d="M214.48456,577.6872l-5.333-21.03429a273.13505,273.13505,0,0,0-28.97793-10.39639l-.67337,9.77549-2.73045-10.7696c-12.212-3.48717-20.51983-5.02321-20.51983-5.02321s11.222,42.67366,34.7592,75.29821l27.42605,4.81755-21.30654,3.072a110.50373,110.50373,0,0,0,9.53072,10.10012c34.24,31.78207,72.377,46.36387,85.18129,32.5693s-4.57281-50.7417-38.81285-82.52378c-10.61475-9.85276-23.94912-17.75951-37.29676-23.98229Z" transform="translate(-156.25 -227.99512)" fill="#e6e6e6"/>
+                            <path d="M265.20535,554.84444l6.30739-20.76292a273.13512,273.13512,0,0,0-19.4325-23.8785l-5.6294,8.02019,3.22943-10.63064c-8.6515-9.29757-14.96939-14.90682-14.96939-14.90682s-12.45158,42.33122-9.16631,82.42573l20.98772,18.30061-19.82728-8.3836a110.50259,110.50259,0,0,0,2.938,13.57259c12.88281,44.90561,37.9924,77.10132,56.08389,71.91112s22.31392-45.80088,9.43111-90.70649c-3.9938-13.92118-11.32161-27.58227-19.53122-39.80866Z" transform="translate(-156.25 -227.99512)" fill="#e6e6e6"/>
+                            <polygon points="194.275 413.765 196.478 423.676 211.894 422.574 210.793 411.563 194.275 413.765" fill="#ffb8b8"/>
+                            <polygon points="155.735 413.765 153.533 423.676 138.116 422.574 139.218 411.563 155.735 413.765" fill="#ffb8b8"/>
+                            <circle cx="151.33025" cy="71.30647" r="20.92191" fill="#ffb8b8"/>
+                            <polygon points="138.116 76.812 132.611 102.139 160.139 110.948 159.038 79.015 138.116 76.812" fill="#ffb8b8"/>
+                            <path d="M304.27679,333.43735l-13.85405-10.48912s-2.66325-3.82588-3.7644-.52242S275.6468,337.842,275.6468,337.842l7.70808,90.29458,58.36113,1.10115s-22.80488-105.25891-25.71743-101.63078S305.378,331.235,304.27679,333.43735Z" transform="translate(-156.25 -227.99512)" fill="#d0cde1"/>
+                            <path d="M315.8389,320.77408s-4.40461,4.40462-2.2023,7.70808.55057,9.42916,2.75288,9.94506-2.20231,37.95511,4.40461,47.86549,3.30346,35.23691,3.30346,39.64152,6.60692,30.8323,6.60692,30.8323,22.02307,2.2023,22.02307-3.30346-7.70807-44.04614-7.70807-44.04614l6.60692-68.27151s0-6.60692-7.70808-8.80923-23.12422-7.70807-23.12422-7.70807Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M347.22178,400.6077H341.716s-28.63,2.20231-26.42768-9.91038,24.22537-3.30346,24.22537-3.30346l6.60692,3.30346Z" transform="translate(-156.25 -227.99512)" fill="#ffb8b8"/>
+                            <path d="M291.29793,318.92237s-9.04421,5.70575-10.14536,7.90806-26.42768,14.315-26.42768,23.12422,7.70807,18.71961,7.70807,18.71961l9.91038,96.90149s16.5173,5.50577,17.61846,1.10116,5.50577-101.30611,3.30346-105.71073-2.20231-33.0346-2.20231-33.0346Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M262.433,478.7896l-1.10115,6.60692s1.10115,22.02306,9.91038,20.92191,3.30346-23.12422,3.30346-23.12422l-1.10115-4.40461Z" transform="translate(-156.25 -227.99512)" fill="#ffb8b8"/>
+                            <path d="M275.6468,422.63077s1.10116,99.10381,6.60692,131.03726,7.70808,86.99112,7.70808,86.99112,14.315,2.2023,16.5173,3.30346,7.70807-2.20231,7.70807-2.20231l1.10116-162.9707,20.92191,73.77727s3.30346,89.19343,9.91038,91.39574,26.42768-2.20231,26.42768-2.20231-7.70807-84.78881-9.91038-88.09227-7.70807-100.205-16.5173-117.82342l-3.30346-12.11268S280.05142,425.93423,275.6468,422.63077Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M353.8287,647.26607s-5.50577-4.40462-5.50577-1.10116-5.50577,23.6748,1.10115,23.6748,50.65306,3.854,49.5519-4.95519-27.59858-22.87573-27.59858-22.87573-9.84063,3.055-10.94178,4.15612S353.8287,647.26607,353.8287,647.26607Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M308.68141,647.26607s5.50576-4.40462,5.50576-1.10116,5.50577,23.6748-1.10115,23.6748-50.65306,3.854-49.5519-4.95519,27.59858-22.87573,27.59858-22.87573,9.84063,3.055,10.94179,4.15612S308.68141,647.26607,308.68141,647.26607Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M343.91831,340.04427l7.70808,1.10115,15.41615,44.04614s4.40461,22.02306-2.20231,25.32652-19.07675,2.658-19.07675,2.658L343.91831,388.495l5.50577,1.10115-5.50577-11.01153Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M260.23066,345.55l-5.50577,4.40462s-5.50577,56.15882-4.40461,61.66459,7.70807,72.67612,7.70807,72.67612l18.71961-4.40461L263.53412,346.65119Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M284.43436,284.0949s-6.09134-7.72731,0-11.591v1.93183s13.05289-14.4887,20.88462-10.625l6.96153-1.93183v1.93183l4.351-1.93183-.87019,2.89774h6.09135l-2.61058,1.93183s20.01442-.96591,7.83173,13.52279c0,0,5.7908,8.68684.28482,13.51959,0,0-4.63578-10.62185-10.72713-7.72411a9.70029,9.70029,0,0,1-10.4423-.96592s-12.18269-.96591-10.44231,4.82957.87019,7.7273.87019,7.7273-4.351,2.89774-3.48076,4.82957.87019,7.72731.87019,7.72731-4.351-6.7614-6.09135-5.79548S276.60264,295.68586,284.43436,284.0949Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <polygon points="366.909 125.259 320.608 126.409 314.376 71.2 366.909 71.2 366.909 125.259" fill="#2f2e41"/>
+                            <path d="M474.14767,424.824,457.247,542.00238s-14.6473,41.68845-15.774,61.96932l-4.50686,29.29459,20.28087,4.50686L478.65453,555.523l29.29459-74.36319L504.569,566.79011l-6.76029,69.85632,20.28087,3.38015,12.39386-89.01048L544.004,485.66663s10.14043-56.33574-5.63358-61.96932Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M455.89071,626.0754l-2.255,27.4237s24.13474,13.953,16.39086,16.65768-18.34306-.77494-20.511-1.38964c-2.28947-.64916-6.56374-1.68443-9.798-2.45052a7.18577,7.18577,0,0,1-5.56211-6.47165l-.00613-.10088c-.195-3.37452,7.41845-32.69953,7.41845-32.69953Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M514.49932,626.76125l1.90016,26.22255s27.483,10.21078,20.39862,14.34536-18.15314,2.74447-20.39862,2.55536c-4.14007-.34865-14.4434-.69647-14.4434-.69647s-1.90464,1.64917-2.74087-1.6259,1.1154-32.53174,1.1154-32.53174Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <circle cx="341.55869" cy="80.77727" r="21.40758" fill="#ffb8b8"/>
+                            <polygon points="329.165 93.171 324.658 117.959 343.812 126.973 348.319 95.425 329.165 93.171" fill="#ffb8b8"/>
+                            <path d="M483.16139,438.3446l23.661,16.90073s10.14043,25.91444,18.02744,21.40758-9.01372-27.04116-9.01372-27.04116L496.682,430.4576Z" transform="translate(-156.25 -227.99512)" fill="#ffb8b8"/>
+                            <path d="M550.76429,430.4576l2.25343,13.52058s-5.63358,28.16787-12.39387,22.5343,2.25343-23.661,2.25343-23.661l-1.12671-11.26715Z" transform="translate(-156.25 -227.99512)" fill="#ffb8b8"/>
+                            <path d="M497.80869,348.20741l-2.25343-9.01372-13.52058-6.76029-4.50686,5.63357-14.6473,4.50686,16.90073,90.1372s57.46246,3.38014,58.58917-5.63357S527.10327,393.276,527.10327,393.276s3.38015-12.39387,2.25343-19.15416l-4.50685-27.04116-18.02744-5.63357-4.11722-4.981-3.76979,6.10768Z" transform="translate(-156.25 -227.99512)" fill="#d0cde1"/>
+                            <path d="M466.26067,344.82726l-3.38015-2.25343s-6.76029,1.12672-9.01372,10.14044,0,49.57546,5.63358,57.46246,21.40758,31.548,21.40758,31.548l21.40759-10.14044-22.5343-25.91444-5.63358-32.67473Z" transform="translate(-156.25 -227.99512)" fill="#d0cde1"/>
+                            <path d="M515.83613,349.33412l9.01372-2.25343s5.63357,2.25343,7.887,10.14044,14.64729,47.322,13.52058,50.70217,10.14043,25.91444,10.14043,25.91444l-15.774,1.12672-9.01372-23.661-9.01371-23.661Z" transform="translate(-156.25 -227.99512)" fill="#d0cde1"/>
+                            <path d="M460.70526,329.10222c4.51467-2.47918,6.61571-8.04376,6.76543-13.19219.14991-5.14842-1.09878-10.24369-1.1969-15.39337a11.89831,11.89831,0,0,1,.26706-3.139,12.0737,12.0737,0,0,1,1.72656-3.57385c5.871-8.99594,16.07638-15.324,26.82591-15.42354a11.91425,11.91425,0,0,1,4.53922.8345c1.11138.4451,1.47478.39062,1.68776,1.7552a11.35932,11.35932,0,0,1,7.79582.24789,26.37535,26.37535,0,0,1,6.81743,4.06012,30.74851,30.74851,0,0,1,3.44684,2.98431c5.68082,5.8851,6.989,14.95526,5.34326,22.96761-.535,2.60491,2.03216,5.11969,4.15627,6.71966s4.577,3.06917,5.62012,5.51537c1.00328,2.35308.45227,5.04423.65429,7.59432a12.98875,12.98875,0,0,0,8.28633,10.9132,3.99764,3.99764,0,0,1-3.85684,1.35637,9.49223,9.49223,0,0,1-4.019-1.91335,23.90592,23.90592,0,0,1-8.91221-13.22354c-.62394,2.83768-.382,5.76453-.359,8.66988a24.21712,24.21712,0,0,0,1.756,9.46973,13.86611,13.86611,0,0,0,6.38417,7.0296c-2.78639,1.36442-5.85713.3755-8.21836-1.63719a17.17514,17.17514,0,0,1-4.72933-7.87993,39.274,39.274,0,0,1-1.89246-14.9056,21.28284,21.28284,0,0,0-2.67076,14.51,22.18356,22.18356,0,0,0,7.52421,13.06028,43.219,43.219,0,0,1-19.78109-4.98172,11.196,11.196,0,0,1-4.05724-3.12461c-1.96347-2.72383-1.49895-6.43879-.94825-9.7511.43559-2.619-2.83727-6.40531-.963-8.28589a3.107,3.107,0,0,1,2.08315-.89535A18.43658,18.43658,0,0,0,514.823,321.194a21.31607,21.31607,0,0,0,3.54906-10.93016,19.88941,19.88941,0,1,0-38.88607,5.90222,39.91139,39.91139,0,0,1,1.4478,6.74031,52.9588,52.9588,0,0,0,1.61427,7.84106c1.418,4.93761,3.82032,9.97577,8.2654,12.5512a12.89972,12.89972,0,0,1-4.91486,1.04076c-5.57763.61458-11.44377.47888-16.49215-1.97081C464.35786,339.91887,460.34554,334.70206,460.70526,329.10222Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <path d="M472.87622,307.24719c16.01859-6.42024,31.81044-7.78979,47.19079,0V294.3063a8.42853,8.42853,0,0,0-8.42852-8.42853H479.53485a6.65863,6.65863,0,0,0-6.65863,6.65863Z" transform="translate(-156.25 -227.99512)" fill="#2f2e41"/>
+                            <ellipse cx="321.61098" cy="83.48803" rx="2.36098" ry="3.77757" fill="#ffb8b8"/>
+                            <rect y="442.00977" width="520" height="2" fill="#3f3d56"/>
+                            <path d="M1043.75,427.51514H646.71v-199.52h397.04Zm-395.04-2h393.04v-195.52H648.71Z" transform="translate(-156.25 -227.99512)" fill="#3f3d56"/>
+                            <path d="M844.08008,390.28522a16.13845,16.13845,0,1,1-16.15015-16.15A16.10482,16.10482,0,0,1,844.08008,390.28522Z" transform="translate(-156.25 -227.99512)" fill="#667eea"/>
+                            <path d="M844.08008,390.28522a16.13845,16.13845,0,1,1-16.15015-16.15A16.10482,16.10482,0,0,1,844.08008,390.28522Z" transform="translate(-156.25 -227.99512)" opacity="0.3"/>
+                            <path d="M873.33008,308.87524a37.39369,37.39369,0,0,1-3.18994,15.33,38.17082,38.17082,0,0,1-3.31006,5.95,49.25668,49.25668,0,0,1-9.43994,10.2c-.62012.52-1.3,1.06-2.21021,1.76-1.13989.85-2.40991,1.74-3.86987,2.7a80.77833,80.77833,0,0,0-7.43018,5.43,16.48378,16.48378,0,0,0-3.60986,3.9c-1.23,2.15-1.8501,6.31-1.8501,12.37v1H811.46v-4.68c0-3.66.09009-6.74.26-9.42a67.41416,67.41416,0,0,1,.76-7.25,17.99478,17.99478,0,0,1,1.87988-6.05c1.77-2.95,6.04-6.96,13.04-12.26.3-.22.6001-.45.91016-.68.29-.2.56982-.41.85986-.63a41.5209,41.5209,0,0,0,6.66016-5.9,21.33529,21.33529,0,0,0,1.61987-2.16l.13013-.2a17.275,17.275,0,0,0,2.22-9.12,15.976,15.976,0,0,0-.15991-2.41,12.74827,12.74827,0,0,0-4.06006-8.12006,14.52355,14.52355,0,0,0-9.11011-3.8c-.42993-.04-.82983-.05-1.24-.05a19.34631,19.34631,0,0,0-4.73.56,14.2523,14.2523,0,0,0-7.43994,4.6,19.34265,19.34265,0,0,0-2.6001,3.97,57.9819,57.9819,0,0,0-4.48,17.14l-.1001,1.05-25.37988-6.76v-11.19c.12012-.45.25-.9.39014-1.34a50.4992,50.4992,0,0,1,7.62988-15.63,39.6736,39.6736,0,0,1,4.92993-5.57c.42993-.43.90015-.85,1.37012-1.26a45.57309,45.57309,0,0,1,10.08984-6.64l.32007-.15a50.78274,50.78274,0,0,1,22.03-4.68006c.79,0,1.72.01,2.63989.06a50.32075,50.32075,0,0,1,21.69019,5.53,44.20118,44.20118,0,0,1,8.42993,5.68,36.01482,36.01482,0,0,1,13.01,23.68A42.2326,42.2326,0,0,1,873.33008,308.87524Z" transform="translate(-156.25 -227.99512)" fill="#667eea"/>
+                            <path d="M873.33008,308.87524a37.39369,37.39369,0,0,1-3.18994,15.33,38.17082,38.17082,0,0,1-3.31006,5.95,49.25668,49.25668,0,0,1-9.43994,10.2c-.62012.52-1.3,1.06-2.21021,1.76-1.13989.85-2.40991,1.74-3.86987,2.7a80.77833,80.77833,0,0,0-7.43018,5.43,16.48378,16.48378,0,0,0-3.60986,3.9c-1.23,2.15-1.8501,6.31-1.8501,12.37v1H811.46v-4.68c0-3.66.09009-6.74.26-9.42a67.41416,67.41416,0,0,1,.76-7.25,17.99478,17.99478,0,0,1,1.87988-6.05c1.77-2.95,6.04-6.96,13.04-12.26.3-.22.6001-.45.91016-.68.29-.2.56982-.41.85986-.63a41.5209,41.5209,0,0,0,6.66016-5.9,21.33529,21.33529,0,0,0,1.61987-2.16l.13013-.2a17.275,17.275,0,0,0,2.22-9.12,15.976,15.976,0,0,0-.15991-2.41,12.74827,12.74827,0,0,0-4.06006-8.12006,14.52355,14.52355,0,0,0-9.11011-3.8c-.42993-.04-.82983-.05-1.24-.05a19.34631,19.34631,0,0,0-4.73.56,14.2523,14.2523,0,0,0-7.43994,4.6,19.34265,19.34265,0,0,0-2.6001,3.97,57.9819,57.9819,0,0,0-4.48,17.14l-.1001,1.05-25.37988-6.76v-11.19c.12012-.45.25-.9.39014-1.34a50.4992,50.4992,0,0,1,7.62988-15.63,39.6736,39.6736,0,0,1,4.92993-5.57c.42993-.43.90015-.85,1.37012-1.26a45.57309,45.57309,0,0,1,10.08984-6.64l.32007-.15a50.78274,50.78274,0,0,1,22.03-4.68006c.79,0,1.72.01,2.63989.06a50.32075,50.32075,0,0,1,21.69019,5.53,44.20118,44.20118,0,0,1,8.42993,5.68,36.01482,36.01482,0,0,1,13.01,23.68A42.2326,42.2326,0,0,1,873.33008,308.87524Z" transform="translate(-156.25 -227.99512)" opacity="0.3"/>
+                            <path d="M833.08008,390.28522a16.13845,16.13845,0,1,1-16.15015-16.15A16.10482,16.10482,0,0,1,833.08008,390.28522Z" transform="translate(-156.25 -227.99512)" fill="#667eea"/>
+                            <path d="M862.33008,308.87524a37.39369,37.39369,0,0,1-3.18994,15.33,38.17082,38.17082,0,0,1-3.31006,5.95,49.25668,49.25668,0,0,1-9.43994,10.2c-.62012.52-1.3,1.06-2.21021,1.76-1.13989.85-2.40991,1.74-3.86987,2.7a80.77833,80.77833,0,0,0-7.43018,5.43,16.48378,16.48378,0,0,0-3.60986,3.9c-1.23,2.15-1.8501,6.31-1.8501,12.37v1H800.46v-4.68c0-3.66.09009-6.74.26-9.42a67.41416,67.41416,0,0,1,.76-7.25,17.99478,17.99478,0,0,1,1.87988-6.05c1.77-2.95,6.04-6.96,13.04-12.26.3-.22.6001-.45.91016-.68.29-.2.56982-.41.85986-.63a41.5209,41.5209,0,0,0,6.66016-5.9,21.33529,21.33529,0,0,0,1.61987-2.16l.13013-.2a17.275,17.275,0,0,0,2.22-9.12,15.976,15.976,0,0,0-.15991-2.41,12.74827,12.74827,0,0,0-4.06006-8.12006,14.52355,14.52355,0,0,0-9.11011-3.8c-.42993-.04-.82983-.05-1.24-.05a19.34631,19.34631,0,0,0-4.73.56,14.2523,14.2523,0,0,0-7.43994,4.6,19.34265,19.34265,0,0,0-2.6001,3.97c-1.80005,3.59-2.97,8.35-3.48,14.14l-.1001,1.05-28.53979-4.07.13989-.99a71.62346,71.62346,0,0,1,2.41016-11.23,50.4992,50.4992,0,0,1,7.62988-15.63,39.6736,39.6736,0,0,1,4.92993-5.57c.42993-.43.90015-.85,1.37012-1.26a45.57309,45.57309,0,0,1,10.08984-6.64l.32007-.15a50.78274,50.78274,0,0,1,22.03-4.68006c.79,0,1.72.01,2.63989.06a50.32075,50.32075,0,0,1,21.69019,5.53,44.20118,44.20118,0,0,1,8.42993,5.68,36.01482,36.01482,0,0,1,13.01,23.68A42.2326,42.2326,0,0,1,862.33008,308.87524Z" transform="translate(-156.25 -227.99512)" fill="#667eea"/>
+                        </svg>
+                </div>
+                <div>
+                    <div class="mx-auto text-center px-4 mt-12 text-2xl text-indigo-900 font-semibold" style="font-size: larger;">Frequently Asked Questions</div>
+                    <dl class="mt-8 mx-auto max-w-screen-sm lg:max-w-screen-lg flex flex-col lg:flex-row lg:flex-wrap">
+                        <div class="lg:w-1/2">
+                            <div class="question-and-answer select-none cursor-pointer border-2 mx-8 my-3 px-6 py-4 rounded-lg text-lg group">
+                                <dt class="question">
+                                        <div class="flex justify-between">
+                                            <div class="text-indigo-800 font-semibold">
+                                            Is this Grade Card Given by College?
+                                            </div>
+                                            <div>
+                                                <svg fill=currentColor class="question-chevron group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="9.29289322 12.9497475 10 13.6568542 15.6568542 8 14.2426407 6.58578644 10 10.8284271 5.75735931 6.58578644 4.34314575 8"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                                <svg fill=currentColor class="question-chevron hidden group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="10.7071068 7.05025253 10 6.34314575 4.34314575 12 5.75735931 13.4142136 10 9.17157288 14.2426407 13.4142136 15.6568542 12"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                <dd class="answer hidden mt-2 leading-snug text-gray-700">
+                                    Although its not issued By BMSCE, its designed Based on their Approval.
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <div class="question-and-answer select-none cursor-pointer border-2 mx-8 my-3 px-6 py-4 rounded-lg text-lg group">
+                                <dt class="question">
+                                        <div class="flex justify-between">
+                                            <div class="text-indigo-800 font-semibold">
+                                                 Is my Grade Card Stored Anywhere In Database?
+                                            </div>
+                                            <div>
+                                                <svg fill=currentColor class="question-chevron group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="9.29289322 12.9497475 10 13.6568542 15.6568542 8 14.2426407 6.58578644 10 10.8284271 5.75735931 6.58578644 4.34314575 8"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                                <svg fill=currentColor class="question-chevron hidden group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="10.7071068 7.05025253 10 6.34314575 4.34314575 12 5.75735931 13.4142136 10 9.17157288 14.2426407 13.4142136 15.6568542 12"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                <dd class="answer hidden mt-2 leading-snug text-gray-700">
+                                    No, Students Grade Cards are not stored Anywhere.
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <div class="question-and-answer select-none cursor-pointer border-2 mx-8 my-3 px-6 py-4 rounded-lg text-lg group">
+                                <dt class="question">
+                                        <div class="flex justify-between">
+                                            <div class="text-indigo-800 font-semibold">
+                                                Will My details Used for Wrong Purpose?
+                                            </div>
+                                            <div>
+                                                <svg fill=currentColor class="question-chevron group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="9.29289322 12.9497475 10 13.6568542 15.6568542 8 14.2426407 6.58578644 10 10.8284271 5.75735931 6.58578644 4.34314575 8"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                                <svg fill=currentColor class="question-chevron hidden group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="10.7071068 7.05025253 10 6.34314575 4.34314575 12 5.75735931 13.4142136 10 9.17157288 14.2426407 13.4142136 15.6568542 12"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                <dd class="answer hidden mt-2 leading-snug text-gray-700">
+                                    No, We Never do that.
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <div class="question-and-answer select-none cursor-pointer border-2 mx-8 my-3 px-6 py-4 rounded-lg text-lg group">
+                                <dt class="question">
+                                        <div class="flex justify-between">
+                                            <div class="text-indigo-800 font-semibold">
+                                                Is the Percentage Calculation Accurate?
+                                            </div>
+                                            <div>
+                                                <svg fill=currentColor class="question-chevron group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="9.29289322 12.9497475 10 13.6568542 15.6568542 8 14.2426407 6.58578644 10 10.8284271 5.75735931 6.58578644 4.34314575 8"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                                <svg fill=currentColor class="question-chevron hidden group-hover:bg-gray-500 h-5 block text-indigo-800 bg-gray-400 rounded-full p-1" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="currentColor" stroke-width="1" fill=currentColor fill-rule="evenodd">
+                                                    <g>
+                                                    <polygon points="10.7071068 7.05025253 10 6.34314575 4.34314575 12 5.75735931 13.4142136 10 9.17157288 14.2426407 13.4142136 15.6568542 12"></polygon>
+                                                    </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                <dd class="answer hidden mt-2 leading-snug text-gray-700">
+                                    No, Percentage calculations may not be Accurate, We have attached a PDF which explains in Detail.
+                                </dd>
+                            </div>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script>
+            $('.question-and-answer').click(function() {
+                $(this).find(".answer").toggleClass("hidden")
+                $(this).find(".question-chevron").toggleClass("hidden")
+            })
+        </script>
+        <div class="REMOVE-THIS-ELEMENT-IF-YOU-ARE-USING-THIS-PAGE hidden treact-popup fixed inset-0 flex items-center justify-center" style="background-color: rgba(0,0,0,0.3);">
+            <div class="max-w-lg p-8 sm:pb-4 bg-white rounded shadow-lg text-center sm:text-left">
+
+                <h3 class="text-xl sm:text-2xl font-semibold mb-6 flex flex-col sm:flex-row items-center">
+                    <div class="bg-green-200 p-2 rounded-full flex items-center mb-4 sm:mb-0 sm:mr-2">
+                        <svg class="text-green-800 inline-block w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                    </div>
+                    Free TailwindCSS Component Kit!
+                </h3>
+                <p>I recently released Treact, a <span class="font-bold">free</span> TailwindCSS Component Kit built with React.</p>
+                <p class="mt-2">It has 52 different UI components, 7 landing pages, and 8 inner pages prebuilt. And they are customizable!</p>
+                <div class="mt-8 pt-8 sm:pt-4 border-t -mx-8 px-8 flex flex-col sm:flex-row justify-end leading-relaxed">
+                    <button class="close-treact-popup px-8 py-3 sm:py-2 rounded border border-gray-400 hover:bg-gray-200 transition duration-300">Close</button>
+                    <a class="font-bold mt-4 sm:mt-0 sm:ml-4 px-8 py-3 sm:py-2 rounded bg-purple-700 text-gray-100 hover:bg-purple-900 transition duration-300 text-center" href="https://treact.owaiskhan.me" target="_blank">See Treact</a>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+
+
+    <!-- 
+    <div class="container" style="margin-top: 2rem;font-size: 16px;">
+        <label class="label success" style="min-width:100%;background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem"><i class="fa fa-info-circle" aria-hidden="true"></i> A QUICK GUIDE TO SGPA/CGPA/% CALCULATION</label>
+        <label class="label success" style="min-width:100%;background-color:rgb(129, 123, 123);color: white;text-align: center;font-weight: bolder;padding: 0.5rem">STEPS TO FOLLOW</label>
+        <center>
+            <p style="margin: 3rem;">
+                <button class="btn btn-primary" style="margin-right:2rem;margin-left:2rem;margin-bottom: 0.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                    <span style="color: white;font-weight: 400;"> &#9312;</span>  STEP 1
+        </button>
+                <button style="margin-bottom: 0.5rem;" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                    <span style="color: white;font-weight: 400;"> &#9313;</span>   STEP 2
+          </button><button class="btn btn-primary" style="margin-right:2rem;margin-left:2rem;margin-bottom: 0.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+            <span style="color: white;font-weight: 400;"> &#9314;</span> STEP 3
+          </button>
+            </p>
+        </center>
+        <div class="collapse" id="collapseExample1">
+            <div class="card card-body">
+                1. ENTER NUMBER OF SEMESTERS COMPLETED AND SUBJECTS PRESENT IN THAT SEMESTER.
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample2">
+            <div class="card card-body">
+                2. ENTER THE DETAILS SUCH AS COURSE CODE, MARKS AND CREDITS ALLOTED TO THAT COURSE.
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample3">
+            <div class="card card-body">
+                3. GET YOUR SGPA, CGPA AND % CALCULATED AND DOWNLOAD A COPY OF THE SAME.
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div class="container" style="text-align: left;" id="info">
+        <label class="label success" style="min-width:100%;background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem"><i class="fa fa-info-circle" aria-hidden="true"></i> A QUICK GUIDE TO SGPA/CGPA/% CALCULATION</label>
+        <label class="label success" style="min-width:100%;background-color:rgb(129, 123, 123);color: white;text-align: center;font-weight: bolder;padding: 0.5rem">STEPS TO FOLLOW</label>
+        <label class="label success" style="min-width:100%;background-color:#28a745;color: white;text-align: left;font-weight: bold;padding: 0.5rem">1. ENTER NUMBER OF SEMESTERS COMPLETED AND SUBJECTS PRESENT IN THAT SEMESTER.</label>
+        <label class="label success" style="min-width:100%;background-color:#28a745;color: white;text-align: left;font-weight: bold;padding: 0.5rem">2. ENTER THE DETAILS SUCH AS COURSE CODE, MARKS AND CREDITS ALLOTED TO THAT COURSE.</label>
+        <label class="label success" style="min-width:100%;background-color:#28a745;color: white;text-align: left;font-weight: bold;padding: 0.5rem">3. GET YOUR SGPA, CGPA AND % CALCULATED AND DOWNLOAD A COPY OF THE SAME.</label>
+    </div> -->
+    <!-- <div class="container" style="margin-top: 2rem;"> <label class="label success" style="min-width:100%;background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>CHOOSE YOUR  -->
+    <!-- SEMESTER FROM THE DROPDOWN BELOW </b></label> -->
+
+    <!-- <p class="card-title" style="margin-bottom:0.2rem; color:#002bff;margin-bottom: 0.5rem;">></p> -->
+    <!-- <select id="semester">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </span>
+    </div> -->
+    <!-- <script>
+        var value = document.getElementById("semester").value;
+        value.disabled;
+    </script> -->
+
+    <style>
+        input {
+            text-transform: lowercase;
+        }
+        
+        #emailto {
+            text-transform: lowercase;
+        }
+        
+        #emailto:valid {
+            text-transform: lowercase;
+        }
+        
+         ::placeholder {
+            text-transform: uppercase;
+        }
+        
+        @media print {
+            #footer,
+            #clear,
+            #download,
+            #info,
+            #main_navbar,
+            hr,
+            #info_cgpa {
+                display: none;
+            }
+            .name,
+            #usn,
+            #branch,
+            #semester,
+            label,
+            .container,
+            span,
+            #Step3_cgpa #FinalCGPA_cgpa {
+                color: black;
+            }
+            label,
+            button,
+            #download,
+            #sgpatoper {
+                color: black;
+            }
+            #userdetails {
+                text-align: left;
+            }
+            #imgdiv {
+                display: block;
+            }
+            body,
+            html {
+                background-color: white;
+                color: black;
+            }
+            #navname {
+                padding: 7rem;
+                margin: 2rem;
+                margin-top: 13rem;
+                text-align: center;
+                margin-bottom: 22rem;
+                display: block;
+            }
+            #imgnav {
+                margin-top: 13rem;
+                position: absolute;
+                top: 3rem;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: 90px;
+                width: 500px
+            }
+            #userdetails {
+                margin-top: 21rem;
+            }
+            #signstu {
+                color: #0088cc;
+            }
+            #signpro {
+                color: #0088cc;
+            }
+            .name {
+                color: black;
+            }
+            #myDiv {
+                color: #0088cc;
+            }
+            #myDiv1 {
+                color: #0088cc;
+            }
+            #perinfo,
+            #merge,
+            .mail {
+                display: none;
+            }
+            #step_image,
+            #download_heading,
+            .container>#step_image,
+            .container>#download_heading,
+            .container>#step_image>#user_details {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .navbar-brand.abs {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                text-align: center;
+            }
+            .nav-item:hover,
+            .nav-link:hover {
+                background-color: #0088cc;
+            }
+            .nav-item,
+            .nav-link {
+                text-align: center;
+            }
+        }
+        
+        .nav-item:hover,
+        .nav-link:hover {
+            background-color: #9392ad;
+        }
+        
+        @media only screen and (max-width:500px) {
+            .divider-vertical-second-menu {
+                display: none;
+            }
+            .nav-item:hover,
+            .nav-link:hover {
+                background-color: #0088cc;
+            }
+            .nav-item,
+            .nav-link {
+                text-align: center;
+            }
+        }
+        
+        label {
+            text-transform: capitalize;
+        }
+        
+         ::placeholder {
+            text-transform: lowercase !important;
+        }
+        
+        #emailfrom,
+        #subj,
+        #message_post {
+            text-transform: lowercase !important;
+        }
+    </style>
+
+
+
+    <br />
+    <style>
+        @media print {
+            .download_heading {
+                display: none;
+            }
+        }
+    </style>
+
+
+    <!-- <span class="label success" style="min-width:75%;background-color: #0088cc;color: white;text-align: center;font-weight: bolder;padding: 0.5rem;display: inline-block;">SGPA CALCULATION - STEP 1. ENTER NUMBER OF SUBJECTS OF THE SEMESTER</span> -->
+    <style>
+         ::placeholder {
+            color: black;
+            font-weight: 399;
+        }
+        
+        #emailinp {
+            font-size: 1em;
+            padding: 1.2em 1.7em 1.2em 1.7em;
+            /* border-radius: 10px; */
+            border: none;
+            outline: none;
+            font-weight: bold;
+            transition: 0.4s;
+            padding: 0.5em;
+            color: black;
+            border: 1px solid grey;
+            border-radius: 5px;
+            background-color: rgb(243, 243, 243);
+        }
+        
+        .it .btn-orange {
+            background-color: blue;
+            border-color: #777!important;
+            color: #777;
+            text-align: left;
+            width: 100%;
+            display: block;
+        }
+        
+        .it input.form-control {
+            border: none;
+            margin-bottom: 0px;
+            border-radius: 0px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: none;
+            display: block;
+        }
+        
+        .it .form-control:focus {
+            border-color: white;
+            box-shadow: none;
+            outline: none;
+            display: block;
+        }
+        
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+        
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            display: block;
+        }
+        
+        #upload {
+            font-family: 'IBM Plex Serif', serif;
+        }
+        
+        #clear,
+        #download,
+        #radios,
+        #__lets_calc_btn,
+        #mergebtn,
+        #sendmail {
+            font-family: 'IBM Plex Serif', serif;
+        }
+        
+        #email-sent {
+            display: none;
+        }
+        
+        #email-sent:target {
+            display: block;
+        }
+        
+        select,
+        input {
+            /* position: relative;
+                    width: 80%; */
+            font-size: 1em;
+            padding: 1.2em 1.7em 1.2em 1.7em;
+            /* border-radius: 10px; */
+            border: none;
+            background-color: rgb(214, 214, 214);
+            outline: none;
+            font-weight: bold;
+            transition: 0.4s;
+            padding: 0.5em;
+            color: black;
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
+        
+        label {
+            text-transform: lowercase;
+        }
+        
+        .label {
+            text-transform: lowercase;
+        }
+        
+        .row>label {
+            text-transform: lowercase;
+        }
+    </style>
+
+
+
+
+
+
+
+    <style>
+        @media print {
+            div {
+                color: black;
+            }
+        }
+        
+        .success_email {
+            margin-top: 3.5rem;
+            text-align: left;
+            color: #042893;
+            font-family: 'IBM Plex Serif', serif;
+            margin-right: -2rem;
+        }
+    </style>
+
+
+
+
+</body>
+
+<script>
+    function showDateTime() {
+        var myDiv = document.getElementById("myDiv");
+
+        var date = new Date();
+        var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        var dayName = dayList[date.getDay()];
+        var monthName = monthNames[date.getMonth()];
+        var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+
+        var time = hour + ":" + min + ":" + sec;
+        myDiv.innerText = `Downloaded On : ${today} AT ${time}`;
+    }
+    setInterval(showDateTime, 1000);
+</script>
+
+
+
+
+
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<div id="wrapper">
+
+    <div id="header">
+    </div>
+    <!-- #header -->
+
+    <div id="content">
+    </div>
+    <!-- #content -->
+
+    <div id="footer"><b>&copy;</b> Copyright
+        <script>
+            document.write(new Date().getFullYear())
+        </script>. All Rights Reserved <br>Created By <a href="https://bit.ly/2XMDijq" target="_blank" style="color: hsl(197, 100%, 55%);font-size: 17px;"><b> Karthik.S</b></a> (UG CSE BMSCE)</p>
+
+    </div>
+    <!-- #footer -->
+
+</div>
+<a href="whatsapp://send?text=Link : https://bmscegpacalculator.netlify.app/" class="float">
+    <div aria-hidden="true " class="resp-sharing-button__icon resp-sharing-button__icon--solid ">
+        <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24 ">
+            <path
+                d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1
+    0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2
+    0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z " />
+        </svg>
+    </div>
+</a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<script>
+    var imagesObject = [];
+
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = function(e) {
+                displayImgData(e.target.result)
+                addImage(e.target.result);
+            };
+
+            reader.readAsDataURL(f);
+        }
+    }
+
+    function loadFromLocalStorage() {
+        var images = JSON.parse(localStorage.getItem("images"))
+        let givemargin = document.getElementById("givemargin");
+        if (images) {
+            imagesObject = images;
+
+            displayNumberOfImgs();
+            images.forEach(displayImgData);
+        }
+
+
+    }
+
+    function addImage(imgData) {
+        imagesObject.push(imgData);
+        displayNumberOfImgs();
+        localStorage.setItem("images", JSON.stringify(imagesObject));
+    }
+
+    function displayImgData(imgData) {
+        var span = document.createElement('span');
+        span.innerHTML = '<img class="thumb" src="' + imgData + '"/>';
+        document.getElementById('list').insertBefore(span, null);
+    }
+
+    function displayNumberOfImgs() {
+        if (imagesObject.length > 0) {
+
+            document.getElementById("state").innerHTML = imagesObject.length + " image" + ((imagesObject.length > 1) ? "s" : "") + " stored in your browser";
+
+            document.getElementById("deleteImgs").style.display = "inline";
+
+        } else {
+            document.getElementById("state").innerHTML = "No images stored in your browser.";
+            document.getElementById("deleteImgs").style.display = "none";
+        }
+
+
+    }
+
+    function deleteImages() {
+        imagesObject = [];
+        localStorage.removeItem("images");
+        displayNumberOfImgs()
+        document.getElementById('list').innerHTML = "";
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    document.getElementById('deleteImgs').addEventListener("click", deleteImages);
+    document.getElementById('files').disabled = false;
+    loadFromLocalStorage();
+</script>
+
+<script src="/assets/js/yearpicker.js" async></script>
+<script src="/assets/js/sgpa.js" async></script>
+<script>
+    (() => {
+
+        const n_key = localStorage.getItem('name-key');
+        const usn_key = localStorage.getItem('usn-key');
+        const branch_key = localStorage.getItem('branch-key');
+        const sem_key = localStorage.getItem('sem-key');
+        document.getElementById('usn').value = usn_key;
+        if (n_key)
+            document.getElementById('name').value = n_key;
+        if (usn_key)
+            document.getElementById('usn').value = usn_key;
+        if (branch_key)
+            document.getElementById('branch').value = branch_key;
+        if (sem_key)
+            document.getElementById('semester').value = sem_key;
+
+    })();
+</script>
+<script>
+    $(document).on('change', '.up', function() {
+        var names = [];
+        var length = $(this).get(0).files.length;
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            names.push($(this).get(0).files[i].name);
+        }
+        // $("input[name=file]").val(names);
+        if (length > 2) {
+            var fileName = names.join(', ');
+            $(this).closest('.form-group').find('.form-control').attr("value", length + " files selected");
+        } else {
+            $(this).closest('.form-group').find('.form-control').attr("value", names);
+        }
+    });
+</script>
+
+
+
+<script>
+    window.history.replaceState('', '', '/');
+</script>
+</body>

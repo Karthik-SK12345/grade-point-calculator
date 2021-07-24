@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <meta name="og:description" content="CALCULATE YOUR BMSCE SGPA,CGPA, PERCENTAGE AND STORE YOUR DATA.">
+    <meta name="author" content="developed by Karthik.S (UG CSE BMSCE)" />
+    <meta property="og:title" content="SGPA,CGPA, PERCENTAGE CALCULATOR FOR BMSCE STUDENTS" />
+    <meta property="og:url" content="https://bmsce-dynamicsgpacalculator.netlify.app/" />
+    <meta name="description" content="CALCULATE SGPA,CGPA,PERCENTAGE AND STORE DATA OF BMSCE RESULTS QUICKLY HERE!">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>BMSCE GP CALCULATOR</title>
+    <link rel="icon" href="/assets/images/preloader.jpg" type="image/icon type">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<style>
+    select {
+        margin: 8px;
+    }
+    
+    .embed-responsive {
+        max-width: 700px;
+        position: relative;
+        padding-bottom: 56.25%;
+        /*16:9*/
+        height: 0;
+        overflow: hidden;
+    }
+    
+    div#container {
+        width: 840px;
+        height: 317px;
+        overflow: scroll;
+        /* if you don't want a scrollbar, set to hidden */
+        overflow-x: hidden;
+        /* hides horizontal scrollbar on newer browsers */
+        /* resize and min-height are optional, allows user to resize viewable area */
+        -webkit-resize: vertical;
+        -moz-resize: vertical;
+        resize: vertical;
+        min-height: 317px;
+    }
+    
+    iframe#show {
+        width: 1000px;
+        /* set this to approximate width of entire page you're embedding */
+        height: 2000px;
+        /* determines where the bottom of the page cuts off */
+        margin-left: -20px;
+        /* clipping left side of page */
+        margin-top: -350px;
+        /* clipping top of page */
+        overflow: hidden;
+        /* resize seems to inherit in at least Firefox */
+        -webkit-resize: none;
+        -moz-resize: none;
+        resize: none;
+    }
+    
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <select>
+          <!-- 將 youtube 的序號放進 option 的 value即可 -->
+          <option value="Computer-Science-and-Engineering-Syllabus">Computer-Science</option>
+          <option value="Civil-Engineering-Syllabus">Civil</option>
+          <option value="Mechanical-Engineering-Syllabus">Mechanical</option>
+     
+        </select>
+                <div class="embed-responsive embed-responsive-16by9" id="container">
+                    <iframe id="show" class="chance embed-responsive-item" src="https://bmsce.ac.in/home/Computer-Science-and-Engineering-Syllabus"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $('select').change(function() {
+            var option = 'https://bmsce.ac.in/home/' + $('select').val();
+            $('#show').attr('src', option);
+        });
+    </script>
+
+</body>
+
+<a href="whatsapp://send?text=Link : https://bmscegpacalculator.netlify.app/" class="float">
+    <div aria-hidden="true " class="resp-sharing-button__icon resp-sharing-button__icon--solid ">
+        <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 24 24 ">
+            <path
+                d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1
+    0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2
+    0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z " />
+        </svg>
+    </div>
+</a>
+<div id="wrapper">
+
+    <div id="header">
+    </div>
+    <!-- #header -->
+
+    <div id="content">
+    </div>
+    <!-- #content -->
+
+    <div id="footer"><b>&copy;</b> Copyright
+        <script>
+            document.write(new Date().getFullYear())
+        </script>. All Rights Reserved <br>Created By <a href="https://bit.ly/2XMDijq" target="_blank" style="color: hsl(197, 100%, 55%);font-size: 17px;"><b> Karthik.S</b></a> (UG CSE BMSCE)</p>
+
+    </div>
+    <!-- #footer -->
+
+</div>
